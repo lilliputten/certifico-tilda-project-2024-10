@@ -1,14 +1,20 @@
 // @ts-check
 
+// eslint-disable-next-line no-unused-vars
+const webpack = require('webpack');
+
+const fs = require('fs');
 const path = require('path');
-// const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const templateHeaderFile = 'src/template-header.html';
 
 module.exports = {
   mode: 'production',
   // @see https://webpack.js.org/configuration/devtool/#devtool
-  // devtool: 'source-map',
   devtool: 'inline-source-map',
   entry: [
     // NOTE: See also `files` field in `tsconfig.json`
@@ -32,7 +38,6 @@ module.exports = {
           {
             loader: MiniCssExtractPlugin.loader,
           },
-
           // Translates CSS into CommonJS
           {
             loader: 'css-loader',
@@ -57,6 +62,38 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'styles.css',
     }),
+    new CopyPlugin({
+      patterns: [{ from: 'src/app-info.json' }],
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/template-header.html',
+      filename: 'include.html',
+      inject: false,
+      minify: false,
+      templateContent: (args) => {
+        const headerContent = fs
+          .readFileSync(path.resolve(__dirname, templateHeaderFile), {
+            encoding: 'utf8',
+          })
+          .trim();
+        const { compilation } = args;
+        // Read scripts chunk...
+        const { assets } = compilation;
+        /** @type {webpack.sources.ConcatSource} */
+        const scriptsAsset = assets['scripts.js'];
+        const scriptsSources = scriptsAsset.getChildren();
+        const scriptsContent = scriptsSources.map((s) => s.source()).join('');
+        return [
+          // Combine template...
+          headerContent,
+          '',
+          '<!-- Injected script -->',
+          '<script>',
+          scriptsContent,
+          '</script>',
+        ].join('\n');
+      },
+    }),
   ],
   optimization: {
     minimize: true,
@@ -66,11 +103,6 @@ module.exports = {
         terserOptions: {
           compress: {
             drop_debugger: false,
-            // global_defs: {
-            //   '@console.log': 'alert',
-            // },
-            // passes: 2,
-            // html5_comments: true,
           },
         },
       }),
