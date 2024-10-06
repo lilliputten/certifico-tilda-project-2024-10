@@ -1,7 +1,7 @@
 #!/bin/sh
 # @desc Update publish folder (prepare remote update)
 # @since 2023.01.26, 16:43
-# @changed 2024.03.07, 21:06
+# @changed 2024.10.07, 00:54
 
 scriptsPath=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
 rootPath=`dirname "$scriptsPath"`
@@ -31,8 +31,9 @@ cd "$PUBLISH_FOLDER" && \
   pwd && \
   rm -Rf * && \
   cp -Rfu ../$BUILD_FOLDER/* . && \
-  cp -Rfu ../$BUILD_FOLDER/.[^.]* . && \
   cd .. && \
   echo OK
+
   # If we have dot (`.*`, hidden) files in build:
   # cp -Rfu ../$BUILD_FOLDER/.[^.]* . && \
+  # TODO: Create conditional operator?

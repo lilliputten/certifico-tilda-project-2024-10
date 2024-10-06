@@ -35,8 +35,8 @@ cd "$PUBLISH_FOLDER" && \
   echo "Add files..." && git add . -Av && \
   echo "Commit..." && git commit -am "$COMMIT_TEXT" && \
   echo "Push basic branch..." && git push && \
-  echo "Build info:" && cat build.txt && \
   cd ..
+  # echo "Build info:" && cat app-info.json && \
   # echo "Don't forget to update version for target project dependency (package.json, WebUiCore entry)"
 
   # echo "Create/update tag $TAG_VALUE..." && git tag -f -am "$COMMIT_TEXT" "$TAG_VALUE" && \

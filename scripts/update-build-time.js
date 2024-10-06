@@ -1,5 +1,5 @@
 /** @desc Update build date/time tag file with current timestamp
- *  @changed 2024.08.27, 17:22
+ *  @changed 2024.10.07, 01:35
  */
 /* eslint-disable no-console */
 
@@ -16,6 +16,7 @@ dayjs.extend(dayjsTimezone);
 const { getBuildInfo } = require('./gulp-helpers.js');
 
 const buildInfoJsonFilename = 'app-info.json';
+const buildInfoScssFilename = 'app-info.scss';
 
 const scriptsPath = path.resolve(__dirname);
 const rootPath = path.resolve(path.dirname(scriptsPath));
@@ -70,9 +71,21 @@ fs.writeFileSync(timestampFileName, buildTzTime, 'utf8');
 
 // Write build info data to use in the source code (if the folder already exists)...
 if (fs.existsSync(srcPath)) {
+  const buildInfo = getBuildInfo();
+  const { projectName, version, timestamp } = buildInfo;
+  const appVersionHash = projectName + ' v.' + version + ' / ' + timestamp;
   const buildInfoJsonFileName = path.resolve(srcPath, buildInfoJsonFilename);
+  const appInfo = {
+    appVersionHash,
+    ...buildInfo,
+  };
   console.log('Creating', buildInfoJsonFilename, 'file...');
-  fs.writeFileSync(buildInfoJsonFileName, JSON.stringify(getBuildInfo(), undefined, 2) + '\n', 'utf8');
+  fs.writeFileSync(buildInfoJsonFileName, JSON.stringify(appInfo, undefined, 2) + '\n', 'utf8');
+  // Scss params...
+  const scssInfo = ':root { --APP-INFO: ' + appVersionHash + '; }';
+  const buildInfoScssFileName = path.resolve(srcPath, buildInfoScssFilename);
+  console.log('Creating', buildInfoScssFilename, 'file...');
+  fs.writeFileSync(buildInfoScssFileName, scssInfo, 'utf8');
 }
 
 function formatDate(date, timeZone, fmt) {
