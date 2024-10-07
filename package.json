@@ -74,14 +74,14 @@
     "type-check": "echo --Run typescript linter-- && tsc --pretty --noEmit",
     "check-all": "echo --Run all pre-commit check-ups-- && npm-run-all prettier stylelint lint type-check && echo --All check-ups are passed--",
     "serve": "serve build",
-    "serve-debug": "serve build-debug",
+    "serve-dev": "serve build-dev",
     "build": "echo --Create all assets /webpack/-- && webpack",
-    "build-debug": "echo --Create all assets in debug mode /webpack/-- && cross-env DEBUG=true webpack",
+    "build-dev": "echo --Create all assets in debug mode /webpack/-- && cross-env DEV=true webpack",
     "watch-build": "echo --Watch all assets /webpack/-- && webpack --watch",
-    "watch-build-debug": "echo --Watch all assets in debug mode /webpack/-- && cross-env DEBUG=true webpack --watch",
+    "watch-build-dev": "echo --Watch all assets in debug mode /webpack/-- && cross-env DEV=true webpack --watch",
     "start": "echo --Run dev server-- && serve .",
     "clear-build": "echo --Clear build folder-- && rimraf -I -g build/* && echo Build folder has been cleaned",
-    "clear-build-debug": "echo --Clear debug build folder-- && rimraf -I -g build-debug/* && echo Debug build folder has been cleaned",
+    "clear-build-dev": "echo --Clear debug build folder-- && rimraf -I -g build-dev/* && echo Debug build folder has been cleaned",
     "clear-cache": "echo --Clear caches-- && rimraf node_modules/.cache && echo Cleared webpack cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   }

@@ -15,6 +15,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { getCompilationScriptsContent } = require('./webpack.helpers');
 const {
+  isDev,
   isDebug,
   appInfoFile,
   useLocalServedScripts,
@@ -72,7 +73,9 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
+      'process.env.DEV': isDev,
       'process.env.DEBUG': isDebug,
+      'process.env.APP_VERSION': JSON.stringify(appVersionHash),
     }),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
@@ -95,6 +98,7 @@ module.exports = {
         const compilation = args.compilation;
         // Get scripts chunk content...
         const scriptsContent = getCompilationScriptsContent(compilation, {
+          isDev,
           isDebug,
           useLocalServedScripts,
         });
@@ -111,7 +115,7 @@ module.exports = {
     }),
   ],
   optimization: {
-    minimize: !isDebug || !useLocalServedScripts,
+    minimize: !isDev || !useLocalServedScripts,
     minimizer: [
       new TerserPlugin({
         extractComments: false,

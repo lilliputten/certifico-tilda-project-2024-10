@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 03:49
+ *  @changed 2024.10.07, 05:12
  */
 
 // eslint-disable-next-line no-unused-vars
@@ -47,15 +47,16 @@ function getAssetContent(asset) {
 /**
  * @param {webpack.Compilation} compilation
  * @param {object} [opts]
+ * @param {boolean} [opts.isDev]
  * @param {boolean} [opts.isDebug]
  * @param {boolean} [opts.useLocalServedScripts]
  */
 function getCompilationScriptsContent(compilation, opts = {}) {
   const scriptFile = 'scripts.js';
   const styleFile = 'styles.css';
-  if (opts.isDebug && opts.useLocalServedScripts) {
+  if (opts.isDev && opts.useLocalServedScripts) {
     return [
-      '<!-- DEBUG: Locally inked scripts & styles -->',
+      '<!-- DEV: Locally linked scripts & styles -->',
       '<script src="http://localhost:3000/' + scriptFile + '"></script>',
       '<link rel="stylesheet" href="http://localhost:3000/' + styleFile + '" type="text/css" />',
     ].join('\n');

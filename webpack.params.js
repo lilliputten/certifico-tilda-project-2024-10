@@ -2,20 +2,23 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 03:45
+ *  @changed 2024.10.07, 05:12
  */
 
 const fs = require('fs');
 const path = require('path');
 const { getTruthy } = require('./webpack.helpers');
 
-const isDebug = getTruthy(process.env.DEBUG);
+const isDev = getTruthy(process.env.DEV);
+const isDebug = true; // getTruthy(process.env.DEBUG);
 
+/** Use locally served assets (only for debug mode) */
 const useLocalServedScripts = true;
 
 const useInlineScripts = !useLocalServedScripts;
 
-const generateSourcesForProduction = false;
+/** Create source maps for production mode (not dev) */
+const generateSourcesForProduction = true;
 
 const templateHeaderFile = 'src/template-header.html';
 
@@ -25,22 +28,39 @@ const appInfoContent = fs.readFileSync(path.resolve(__dirname, appInfoFile), {
 });
 const appInfo = JSON.parse(appInfoContent);
 const { projectName, version, timestamp } = appInfo;
-const appVersionHash =
-  (isDebug ? 'DEBUG: ' : '') + projectName + ' v.' + version + ' / ' + timestamp;
-
-const outPath = isDebug ? 'build-debug' : 'build';
+const appVersionHash = [
+  [
+    // Debug & dev flags...
+    isDebug && 'DEBUG',
+    isDev && 'DEV',
+  ]
+    .filter(Boolean)
+    .join(','),
+  // Version...
+  projectName + ' v.' + version + ' / ' + timestamp,
+]
+  .filter(Boolean)
+  .join(': ');
+const outPath = isDev ? 'build-dev' : 'build';
 
 // @see https://webpack.js.org/configuration/devtool/#devtool
-const devtool = isDebug
+const devtool = isDev
   ? useInlineScripts
     ? 'inline-source-map'
     : 'source-map'
   : generateSourcesForProduction
-    ? 'source-map'
+    ? 'inline-source-map'
     : undefined;
+
+// Info:
+console.log('DEV:', isDev); // eslint-disable-line no-console
+console.log('DEBUG:', isDebug); // eslint-disable-line no-console
+console.log('appVersionHash:', appVersionHash); // eslint-disable-line no-console
+console.log('devtool:', devtool); // eslint-disable-line no-console
 
 // Export parameters...
 module.exports = {
+  isDev,
   isDebug,
 
   useLocalServedScripts,
