@@ -1,6 +1,10 @@
 // @ts-check
 
-// eslint-disable-next-line no-unused-vars
+/** @module Webpack config
+ *  @since 2024.10.07, 00:00
+ *  @changed 2024.10.07, 04:11
+ */
+
 const webpack = require('webpack');
 
 const fs = require('fs');
@@ -9,13 +13,21 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-
-const templateHeaderFile = 'src/template-header.html';
+const { getCompilationScriptsContent } = require('./webpack.helpers');
+const {
+  isDebug,
+  appInfoFile,
+  useLocalServedScripts,
+  appVersionHash,
+  outPath,
+  templateHeaderFile,
+  devtool,
+} = require('./webpack.params');
 
 module.exports = {
   mode: 'production',
   // @see https://webpack.js.org/configuration/devtool/#devtool
-  devtool: 'inline-source-map',
+  devtool,
   entry: [
     // NOTE: See also `files` field in `tsconfig.json`
     './src/scripts/root.ts',
@@ -46,12 +58,12 @@ module.exports = {
               url: false,
             },
           },
-
           // Compiles Sass to CSS
           {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+              // TODO: Inject 'use' for math and color features, import common variables and mixins.
             },
           },
         ],
@@ -59,11 +71,14 @@ module.exports = {
     ],
   },
   plugins: [
+    new webpack.DefinePlugin({
+      'process.env.DEBUG': isDebug,
+    }),
     new MiniCssExtractPlugin({
       filename: 'styles.css',
     }),
     new CopyPlugin({
-      patterns: [{ from: 'src/app-info.json' }],
+      patterns: [{ from: appInfoFile }],
     }),
     new HtmlWebpackPlugin({
       template: 'src/template-header.html',
@@ -76,27 +91,27 @@ module.exports = {
             encoding: 'utf8',
           })
           .trim();
-        const { compilation } = args;
-        // Read scripts chunk...
-        const { assets } = compilation;
-        /** @type {webpack.sources.ConcatSource} */
-        const scriptsAsset = assets['scripts.js'];
-        const scriptsSources = scriptsAsset.getChildren();
-        const scriptsContent = scriptsSources.map((s) => s.source()).join('');
+        /** @type {webpack.Compilation} */
+        const compilation = args.compilation;
+        // Get scripts chunk content...
+        const scriptsContent = getCompilationScriptsContent(compilation, {
+          isDebug,
+          useLocalServedScripts,
+        });
         return [
           // Combine template...
+          '<!-- ' + appVersionHash + ' -->',
+          '',
           headerContent,
           '',
-          '<!-- Injected script -->',
-          '<script>',
           scriptsContent,
-          '</script>',
+          '',
         ].join('\n');
       },
     }),
   ],
   optimization: {
-    minimize: true,
+    minimize: !isDebug || !useLocalServedScripts,
     minimizer: [
       new TerserPlugin({
         extractComments: false,
@@ -111,6 +126,6 @@ module.exports = {
   output: {
     filename: 'scripts.js',
     // NOTE: See also `outDir` field in `tsconfig.json`
-    path: path.resolve(__dirname, 'build'),
+    path: path.resolve(__dirname, outPath),
   },
 };
