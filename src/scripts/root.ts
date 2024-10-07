@@ -1,7 +1,6 @@
-/**
- * @module Scripts root module
- * @since 2024.10.06, 22:40
- * @changed 2024.10.07, 04:58
+/** @module Scripts root module
+ *  @since 2024.10.06, 22:40
+ *  @changed 2024.10.07, 04:58
  */
 
 // Print app info...

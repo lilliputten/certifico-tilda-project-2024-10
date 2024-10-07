@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 04:11
+ *  @changed 2024.10.07, 15:15
  */
 
 const webpack = require('webpack');
@@ -23,6 +23,7 @@ const {
   outPath,
   templateHeaderFile,
   devtool,
+  minimizeAssets,
 } = require('./webpack.params');
 
 module.exports = {
@@ -64,7 +65,20 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              // TODO: Inject 'use' for math and color features, import common variables and mixins.
+              /* // NOTE: Inject 'use' for math and color features, import common variables and mixins.
+               * additionalData: [
+               *   '@use "sass:math";',
+               *   '@use "sass:color";',
+               *   '@import "src/styles/variables.scss";',
+               *   // '@import "src/styles/mixins.scss";',
+               * ]
+               *   .filter(Boolean)
+               *   .join('\n'),
+               */
+              sassOptions: {
+                // @see https://github.com/sass/node-sass#outputstyle
+                outputStyle: minimizeAssets ? 'compressed' : 'expanded',
+              },
             },
           },
         ],
@@ -115,7 +129,7 @@ module.exports = {
     }),
   ],
   optimization: {
-    minimize: !isDev || !useLocalServedScripts,
+    minimize: minimizeAssets,
     minimizer: [
       new TerserPlugin({
         extractComments: false,
