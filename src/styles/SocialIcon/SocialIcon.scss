@@ -1,7 +1,9 @@
 .SocialIcons {
   display: flex;
+  justify-content: center;
   gap: 1em;
 }
+
 .SocialIcon {
   display: inline-block;
   width: var(--socialIconSize);
