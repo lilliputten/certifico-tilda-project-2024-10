@@ -12,4 +12,12 @@
   --themeMoodColor: #{$themeMoodColor};
   --themeRedRBG: #{rgbComponents($themeRedColor)};
   --themeMoodRBG: #{rgbComponents($themeMoodColor)};
+
+  --navbarHeight: #{$navbarHeight};
+
+  --socialIconSize: #{$socialIconSize};
+
+  --transitionTimeMs: #{$transitionTimeMs};
+  --animationTimeMs: #{$animationTimeMs};
+  --disappearTimeMs: #{$disappearTimeMs};
 }

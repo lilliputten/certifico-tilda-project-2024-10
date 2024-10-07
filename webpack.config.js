@@ -36,7 +36,7 @@ module.exports = {
     './src/styles/styles.scss',
   ],
   resolve: {
-    extensions: ['.scss', '.sass', '.css', '.tsx', '.ts', '.js'],
+    extensions: ['.scss', '.sass', '.css', '.tsx', '.ts', '.js', '.svg'],
   },
   module: {
     rules: [
@@ -51,13 +51,22 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
           },
           // Translates CSS into CommonJS
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              url: false,
+              url: true,
+            },
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true,
             },
           },
           // Compiles Sass to CSS
@@ -82,6 +91,30 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        // More information here https://webpack.js.org/guides/asset-modules/
+        type: 'asset/inline',
+        // use: [
+        //   {
+        //     loader: 'url-loader',
+        //     options: {
+        //       limit: false,
+        //     },
+        //   },
+        // ],
+
+        // laoder: 'url',
+        /* generator: {
+         *   dataUrl: (content) => {
+         *     content = content.toString();
+         *     console.log('XXX', content);
+         *     process.exit(99);
+         *     return btoa(content); // svgToMiniDataURI(content);
+         *   },
+         * },
+         */
       },
     ],
   },
@@ -145,5 +178,6 @@ module.exports = {
     filename: 'scripts.js',
     // NOTE: See also `outDir` field in `tsconfig.json`
     path: path.resolve(__dirname, outPath),
+    // assetModuleFilename: 'assets/[hash][ext][query]',
   },
 };

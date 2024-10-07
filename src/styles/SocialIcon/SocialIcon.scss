@@ -1,0 +1,18 @@
+.SocialIcons {
+  display: flex;
+  gap: 1em;
+}
+.SocialIcon {
+  display: inline-block;
+  width: var(--socialIconSize);
+  height: var(--socialIconSize);
+  // background-color: red;
+  background-repeat: no-repeat;
+  background-position: center;
+  &#tg {
+    background-image: url('../../assets/social-icons/tg.svg');
+  }
+  &#whatsapp {
+    background-image: url('../../assets/social-icons/whatsapp.svg');
+  }
+}

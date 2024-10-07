@@ -19,7 +19,7 @@ vim: ft=jsonc
     // "no-debugger": false,
     "baseUrl": ".",
     "paths": {
-      "src/*": ["src/scripts/*"]
+      "src/scripts/*": ["src/scripts/*"]
     },
     "outDir": "./build/"
   },
