@@ -1,9 +1,11 @@
 /** @module Scripts root module
  *  @since 2024.10.06, 22:40
- *  @changed 2024.10.07, 04:58
+ *  @changed 2024.10.08, 16:15
  */
 
 import { initNavHeader } from './NavHeader/NavHeader';
+import { initTopMenu } from './TopMenu/TopMenu';
+// import { initDevWarning } from './DevWarning/DevWarning';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;

@@ -1,0 +1,16 @@
+.uc-TopMenu {
+  $BLOCK: '.t229';
+  $mobileTreshold: 980px;
+  border: 1px solid red;
+  position: fixed;
+  // height: 50px;
+  width: 100%;
+  z-index: 995;
+  > #{$BLOCK} {
+    position: relative;
+    // background-color: #fff;
+  }
+  @media (width <= $mobileTreshold) {
+    display: none;
+  }
+}
