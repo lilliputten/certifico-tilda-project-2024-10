@@ -1,11 +1,11 @@
 {
-  "appVersionHash": "certifico-included-assets v.0.0.2 / 2024.10.08 00:36 +0300",
+  "appVersionHash": "certifico-included-assets v.0.0.3 / 2024.10.08 21:48 +0300",
   "projectName": "certifico-included-assets",
-  "timestamp": "2024.10.08 00:36 +0300",
-  "timetag": "241008-0036",
-  "version": "0.0.2",
-  "currentTimeStr": "2024.10.08 00:36 +0300",
-  "currentTimeTag": "241008-0036",
-  "gitCommitHash": "7fb6c73",
+  "timestamp": "2024.10.08 21:48 +0300",
+  "timetag": "241008-2148",
+  "version": "0.0.3",
+  "currentTimeStr": "2024.10.08 21:48 +0300",
+  "currentTimeTag": "241008-2148",
+  "gitCommitHash": "c429f74",
   "gitBranch": "1-adjust-stylize-header-nav-bar"
 }
