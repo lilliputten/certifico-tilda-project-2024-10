@@ -11,11 +11,12 @@ export function initNavHeader() {
   const selectorSocials = `${selectorSocialsWrapper} a`;
   const wrapper = document.querySelector(selectorSocialsWrapper);
   const items = document.querySelectorAll(selectorSocials);
-  console.log('[NavHeader:initNavHeader]', {
-    items,
-    // tgIcon,
-    // nodeNavHeader,
-  });
+  /* console.log('[NavHeader:initNavHeader]', {
+   *   items,
+   *   // tgIcon,
+   *   // nodeNavHeader,
+   * });
+   */
   if (wrapper) {
     wrapper.classList.toggle('SocialIcons', true);
   }
@@ -23,13 +24,14 @@ export function initNavHeader() {
     const content = item.textContent;
     const id = content.startsWith('#') && (content.substring(1) as TSocialId);
     const isValid = id && socialIds.includes(id);
-    console.log('[NavHeader:initNavHeader:forEach]', {
-      isValid,
-      id,
-      content,
-      item,
-      items,
-    });
+    /* console.log('[NavHeader:initNavHeader:forEach]', {
+     *   isValid,
+     *   id,
+     *   content,
+     *   item,
+     *   items,
+     * });
+     */
     if (isValid) {
       item.classList.toggle('SocialIcon', true);
       item.id = id;

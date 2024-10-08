@@ -15,10 +15,10 @@ export function initTopMenu() {
   menuNodeCopy.classList.toggle('SubMenu', true);
   // Add menu node copy to the hav header...
   navHeaderWrapperNode.append(menuNodeCopy);
-  // const selectorNavHeader = `.uc-NavHeader ${BLOCK}__adress-container .t-descr`;
-  console.log('[TopMenu:initTopMenu]', {
-    menuNodeCopy,
-    menuNode,
-    navHeaderWrapperNode,
-  });
+  /* console.log('[TopMenu:initTopMenu]', {
+   *   menuNodeCopy,
+   *   menuNode,
+   *   navHeaderWrapperNode,
+   * });
+   */
 }

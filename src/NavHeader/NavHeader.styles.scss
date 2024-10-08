@@ -25,9 +25,6 @@
   > #{$BLOCK} {
     background-color: #fff;
   }
-  // #{$BLOCK}__maincontainer {
-  //   background-color: #fff;
-  // }
   #{$BLOCK}__logo-descr {
     color: #000;
   }
@@ -82,12 +79,10 @@
     & {
       // height: calc(var(--navbarHeight) + var(--topMenuHeight));
       height: var(--navbarHeight);
-      // border: 2px solid blue;
     }
     > #{$BLOCK} {
       // height: calc(var(--navbarHeight) + var(--topMenuHeight));
       height: var(--navbarHeight);
-      // border: 2px solid green;
     }
     #{$BLOCK}__maincontainer {
       height: var(--navbarHeight);
