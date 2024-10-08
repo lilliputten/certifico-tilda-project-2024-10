@@ -32,11 +32,11 @@ module.exports = {
   devtool,
   entry: [
     // NOTE: See also `files` field in `tsconfig.json`
-    './src/scripts/root.ts',
-    './src/styles/styles.scss',
+    './src/root.ts',
+    // './src/styles.scss',
   ],
   resolve: {
-    extensions: ['.scss', '.sass', '.css', '.tsx', '.ts', '.js'],
+    extensions: ['.scss', '.sass', '.css', '.tsx', '.ts', '.js', '.svg'],
   },
   module: {
     rules: [
@@ -51,13 +51,29 @@ module.exports = {
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
           },
           // Translates CSS into CommonJS
           {
             loader: 'css-loader',
             options: {
+              importLoaders: 1,
+              // modules: true,
+              modules: {
+                // compileType: 'icss',
+                // mode: 'local',
+                mode: 'icss',
+              },
               sourceMap: true,
-              url: false,
+              url: true,
+            },
+          },
+          {
+            loader: 'resolve-url-loader',
+            options: {
+              sourceMap: true,
             },
           },
           // Compiles Sass to CSS
@@ -67,10 +83,10 @@ module.exports = {
               sourceMap: true,
               /* // NOTE: Inject 'use' for math and color features, import common variables and mixins.
                * additionalData: [
-               *   '@use "sass:math";',
-               *   '@use "sass:color";',
-               *   '@import "src/styles/variables.scss";',
-               *   // '@import "src/styles/mixins.scss";',
+               *   // '@use "sass:math";',
+               *   // '@use "sass:color";',
+               *   // '@import "src/variables.scss";',
+               *   // '@import "src/mixins.scss";',
                * ]
                *   .filter(Boolean)
                *   .join('\n'),
@@ -82,6 +98,30 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
+        // More information here https://webpack.js.org/guides/asset-modules/
+        type: 'asset/inline',
+        // use: [
+        //   {
+        //     loader: 'url-loader',
+        //     options: {
+        //       limit: false,
+        //     },
+        //   },
+        // ],
+
+        // laoder: 'url',
+        /* generator: {
+         *   dataUrl: (content) => {
+         *     content = content.toString();
+         *     console.log('XXX', content);
+         *     process.exit(99);
+         *     return btoa(content); // svgToMiniDataURI(content);
+         *   },
+         * },
+         */
       },
     ],
   },
@@ -145,5 +185,6 @@ module.exports = {
     filename: 'scripts.js',
     // NOTE: See also `outDir` field in `tsconfig.json`
     path: path.resolve(__dirname, outPath),
+    // assetModuleFilename: 'assets/[hash][ext][query]',
   },
 };

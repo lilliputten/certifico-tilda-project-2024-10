@@ -1,0 +1,119 @@
+@use 'sass:math';
+
+@import '../variables';
+
+#allrecords .uc-NavHeader {
+  $BLOCK: $blockNavHeader;
+  $mobileTreshold: 980px;
+  $logoWidth: 205px;
+  $logoHeight: 55px;
+
+  $smallLogoScale: 1.5;
+  $smallLogoWidth: calc($logoWidth / $smallLogoScale);
+  $smallLogoHeight: calc($logoHeight / $smallLogoScale);
+
+  // Links...
+  a {
+    transition: all var(--transitionTimeMs);
+    &:hover {
+      opacity: 0.75;
+      text-decoration: underline;
+    }
+  }
+
+  // Colors...
+  > #{$BLOCK} {
+    background-color: #fff;
+  }
+  #{$BLOCK}__logo-descr {
+    color: #000;
+  }
+
+  // Logo...
+  #{$BLOCK}__imglogo {
+    width: $logoWidth !important;
+    max-width: $logoWidth !important;
+    height: $logoHeight;
+  }
+
+  // Contacts block...
+  #{$BLOCK} #{$BLOCK}__phone-container {
+    .t-descr,
+    a {
+      color: #aaa;
+    }
+    // Big phone
+    strong a {
+      font-size: 24px;
+      color: var(--themeRedColor);
+      font-weight: normal;
+    }
+  }
+
+  @media (width <= $mobileTreshold) {
+    .SubMenu {
+      .t-menu__list {
+        padding: 0 20px;
+        line-height: 2em;
+      }
+      nav {
+        padding: 0;
+        padding-bottom: 10px;
+      }
+      a {
+        color: var(--themeMoodColor);
+      }
+    }
+    #{$BLOCK}__maincontainer {
+      padding-top: 5px;
+      padding-bottom: 20px;
+    }
+  }
+
+  // Medium and big screens adjustments...
+  @media (width > $mobileTreshold) {
+    .SubMenu {
+      // Hide submenu for wide screens: TopMenu will apear then
+      display: none;
+    }
+    & {
+      // height: calc(var(--navbarHeight) + var(--topMenuHeight));
+      height: var(--navbarHeight);
+    }
+    > #{$BLOCK} {
+      // height: calc(var(--navbarHeight) + var(--topMenuHeight));
+      height: var(--navbarHeight);
+    }
+    #{$BLOCK}__maincontainer {
+      height: var(--navbarHeight);
+    }
+    #{$BLOCK}__maincontainer,
+    #{$BLOCK}__leftwrapper,
+    #{$BLOCK}__rightwrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 2em;
+    }
+    #{$BLOCK}__logo-wrapper {
+      flex: 1.5;
+    }
+    @media (width <= 1200px) {
+      // Hide logo description on medium screens
+      #{$BLOCK}__logo-descr {
+        display: none;
+      }
+    }
+  }
+
+  // Mobile menu...
+  .tmenu-mobile__burgerlogo {
+    a {
+      img {
+        width: $smallLogoWidth !important;
+        max-width: $smallLogoWidth !important;
+        height: $smallLogoHeight;
+      }
+    }
+  }
+}

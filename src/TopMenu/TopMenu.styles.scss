@@ -1,0 +1,27 @@
+@import '../variables';
+
+.uc-TopMenu {
+  $BLOCK: $blockTopMenu;
+  $mobileTreshold: 980px;
+
+  // display: none;
+  position: fixed;
+  width: 100%;
+  z-index: 995;
+  > #{$BLOCK} {
+    position: relative;
+    // border: 2px dashed red;
+  }
+  a {
+    transition: all var(--transitionTimeMs);
+    &:hover {
+      opacity: 0.75;
+      text-decoration: underline !important;
+    }
+  }
+
+  // Hide for small screens: NavHeader SubMenu will be visible
+  @media (width <= $mobileTreshold) {
+    display: none;
+  }
+}
