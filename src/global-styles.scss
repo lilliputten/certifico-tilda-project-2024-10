@@ -3,14 +3,14 @@
  *  @changed 2024.10.08, 16:15
  */
 
-@import '../app-info';
+// @import './app-info';
 
-@import 'variables-expose';
+// @import 'variables-expose';
 
 @import 'DevWarning/DevWarning';
-@import 'NavHeader/NavHeader';
-@import 'TopMenu/TopMenu';
-@import 'SocialIcon/SocialIcon';
+// @import 'NavHeader/NavHeader';
+// @import 'TopMenu/TopMenu';
+// @import 'SocialIcon/SocialIcon';
 
 body {
   // border: 5px solid var(--themeRedColor); // DEBUG

@@ -1,11 +1,16 @@
 /** @module Scripts root module
  *  @since 2024.10.06, 22:40
- *  @changed 2024.10.08, 16:15
+ *  @changed 2024.10.08, 21:00
  */
 
-import { initNavHeader } from './NavHeader/NavHeader';
-import { initTopMenu } from './TopMenu/TopMenu';
-// import { initDevWarning } from './DevWarning/DevWarning';
+import './app-info.scss';
+import './variables/variables-expose.scss';
+
+import './SocialIcon';
+import './DevWarning';
+
+import { initNavHeader } from './NavHeader';
+import { initTopMenu } from './TopMenu';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;
@@ -16,9 +21,10 @@ const consoleMethod = isDebug || isDev ? console.warn : console.log;
 consoleMethod.call(console, appVersion);
 
 function initPage() {
-  console.log('[root:initPage]');
+  // console.log('[root:initPage]');
   // Start subcomponents...
   initNavHeader();
+  initTopMenu();
 }
 
 window.addEventListener('load', initPage);

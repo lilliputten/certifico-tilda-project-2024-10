@@ -19,11 +19,11 @@ vim: ft=jsonc
     // "no-debugger": false,
     "baseUrl": ".",
     "paths": {
-      "src/scripts/*": ["src/scripts/*"]
+      "src/*": ["src/*"]
     },
     "outDir": "./build/"
   },
-  "files": ["src/scripts/root.ts"],
-  "typeRoots": ["src/scripts/@types/**/*"],
-  "include": ["src/scripts"]
+  "files": ["src/root.ts"],
+  "typeRoots": ["src/@types/**/*"],
+  "include": ["src/"]
 }

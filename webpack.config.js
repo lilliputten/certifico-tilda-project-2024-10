@@ -32,8 +32,8 @@ module.exports = {
   devtool,
   entry: [
     // NOTE: See also `files` field in `tsconfig.json`
-    './src/scripts/root.ts',
-    './src/styles/styles.scss',
+    './src/root.ts',
+    // './src/styles.scss',
   ],
   resolve: {
     extensions: ['.scss', '.sass', '.css', '.tsx', '.ts', '.js', '.svg'],
@@ -59,6 +59,13 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
+              importLoaders: 1,
+              // modules: true,
+              modules: {
+                // compileType: 'icss',
+                // mode: 'local',
+                mode: 'icss',
+              },
               sourceMap: true,
               url: true,
             },
@@ -76,10 +83,10 @@ module.exports = {
               sourceMap: true,
               /* // NOTE: Inject 'use' for math and color features, import common variables and mixins.
                * additionalData: [
-               *   '@use "sass:math";',
-               *   '@use "sass:color";',
-               *   '@import "src/styles/variables.scss";',
-               *   // '@import "src/styles/mixins.scss";',
+               *   // '@use "sass:math";',
+               *   // '@use "sass:color";',
+               *   // '@import "src/variables.scss";',
+               *   // '@import "src/mixins.scss";',
                * ]
                *   .filter(Boolean)
                *   .join('\n'),

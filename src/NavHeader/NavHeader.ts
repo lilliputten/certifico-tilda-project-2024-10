@@ -1,9 +1,10 @@
-// import { TSocialId, socialIds } from 'src/core/constants/socialIds';
 import { TSocialId, socialIds } from '../core/constants/socialIds';
 
-// import tgIcon from '../../assets/social-icons/tg.svg';
+import { blockNavHeader } from '../variables';
 
-const BLOCK = '.t821';
+const BLOCK = blockNavHeader;
+
+import './NavHeader.styles.scss';
 
 export function initNavHeader() {
   const selectorSocialsWrapper = `.uc-NavHeader ${BLOCK}__adress-container .t-descr`;

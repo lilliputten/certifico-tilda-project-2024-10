@@ -8,7 +8,7 @@
 /.venv
 /.vscode
 /__mocks__
-/build
+/build*
 /coverage
 /docs
 /i18n

@@ -1,9 +1,9 @@
 @use 'sass:math';
 
-// @import '../variables';
+@import '../variables';
 
 #allrecords .uc-NavHeader {
-  $BLOCK: '.t821';
+  $BLOCK: $blockNavHeader;
   $mobileTreshold: 980px;
   $logoWidth: 205px;
   $logoHeight: 55px;
