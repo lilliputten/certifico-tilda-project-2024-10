@@ -13,13 +13,7 @@
   $smallLogoHeight: calc($logoHeight / $smallLogoScale);
 
   // Links...
-  a {
-    transition: all var(--transitionTimeMs);
-    &:hover {
-      opacity: 0.75;
-      text-decoration: underline;
-    }
-  }
+  @include activeLink;
 
   // Colors...
   > #{$BLOCK} {

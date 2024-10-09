@@ -6,8 +6,7 @@
 import './app-info.scss';
 import './variables/variables-expose.scss';
 
-import './SocialIcon';
-import './DevWarning';
+import './misc-styles';
 
 import { initNavHeader } from './NavHeader';
 import { initTopMenu } from './TopMenu';

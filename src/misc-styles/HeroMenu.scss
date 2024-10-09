@@ -1,0 +1,9 @@
+@import '../variables';
+
+.uc-HeroMenu {
+  line-height: 2em;
+  > * {
+    height: auto;
+  }
+  @include activeLink;
+}
