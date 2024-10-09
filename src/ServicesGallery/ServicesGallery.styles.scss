@@ -1,5 +1,3 @@
-@use 'sass:math';
-
 @import '../variables';
 
 .uc-ServicesGallery {
@@ -22,6 +20,9 @@
     height: 160px;
     position: relative;
     background-color: rgba(var(--themeMoodRBG) / 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     @media (width > $smallTreshold) {
       border-radius: 8px;
     }
@@ -32,7 +33,7 @@
       top: 0;
       right: 0;
       bottom: 0;
-      /* ServiceItemGradient */
+      // ServiceItemGradient
       background: linear-gradient(
         180deg,
         rgba(var(--themeMoodRBG) / 10%) 0%,

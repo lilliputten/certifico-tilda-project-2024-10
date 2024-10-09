@@ -1,4 +1,5 @@
 @mixin activeLink {
+  button,
   a {
     transition: all var(--transitionTimeMs);
     &:hover {
