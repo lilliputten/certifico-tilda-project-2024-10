@@ -1,0 +1,75 @@
+@use 'sass:math';
+
+@import '../variables';
+
+.uc-ServicesGallery {
+  .t-section__title {
+    margin-bottom: 40px !important;
+  }
+  .t-card__container {
+    // A container (Do we have style for this?)
+  }
+  // Delimiter
+  .t-clear {
+    @media (width > $wideTreshold) {
+      margin-bottom: 40px !important;
+    }
+  }
+  // Card element...
+  .t-card__col {
+    overflow: hidden;
+    // Hide images (it'll be removed by js code...
+    height: 160px;
+    position: relative;
+    background-color: rgba(var(--themeMoodRBG) / 100%);
+    @media (width > $smallTreshold) {
+      border-radius: 8px;
+    }
+    // Wrapper
+    > * {
+      position: absolute;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      /* ServiceItemGradient */
+      background: linear-gradient(
+        180deg,
+        rgba(var(--themeMoodRBG) / 10%) 0%,
+        rgba(var(--themeMoodRBG) / 90%) 75%
+      );
+      padding: 0;
+      text-align: left;
+      display: flex;
+      align-items: flex-end;
+    }
+    // Text
+    .t-name {
+      color: #fff;
+      margin: 10px;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 20px;
+    }
+    // Hover effect, for active nodes...
+    &[style*='cursor:'] {
+      transition: all var(--transitionTimeMs);
+      &:hover {
+        opacity: 0.9;
+        .t-name a {
+          text-decoration: underline !important;
+        }
+      }
+    }
+  }
+
+  .grad {
+    /* Gradient */
+    position: absolute;
+    left: -5.83%;
+    right: -5.83%;
+    top: 0%;
+    bottom: 0%;
+  }
+}

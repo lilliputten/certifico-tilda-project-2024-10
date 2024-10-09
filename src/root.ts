@@ -10,6 +10,7 @@ import './misc-styles';
 
 import { initNavHeader } from './NavHeader';
 import { initTopMenu } from './TopMenu';
+import { initServicesGallery } from './ServicesGallery';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;
@@ -24,6 +25,9 @@ function initPage() {
   // Start subcomponents...
   initNavHeader();
   initTopMenu();
+  initServicesGallery();
+  // setTimeout(initServicesGallery, 2000);
+  // requestAnimationFrame(() => setTimeout(initServicesGallery, 1000));
 }
 
 window.addEventListener('load', initPage);

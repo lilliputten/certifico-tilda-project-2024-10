@@ -1,1 +1,0 @@
-import './TopHero.styles.scss';

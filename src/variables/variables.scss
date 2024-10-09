@@ -10,6 +10,11 @@ $transitionTimeMs: 250ms;
 $animationTimeMs: 500ms;
 $disappearTimeMs: 1000ms;
 
+// Adaptive layouts...
+$smallTreshold: 660px;
+$mobileTreshold: 980px;
+$wideTreshold: 1200px;
+
 // Blocks
 $blockTopMenu: '.t229';
 $blockNavHeader: '.t821';

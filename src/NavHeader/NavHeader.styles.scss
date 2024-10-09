@@ -4,7 +4,7 @@
 
 #allrecords .uc-NavHeader {
   $BLOCK: $blockNavHeader;
-  $mobileTreshold: 980px;
+  // $mobileTreshold: 980px;
   $logoWidth: 205px;
   $logoHeight: 55px;
 
@@ -46,6 +46,9 @@
 
   @media (width <= $mobileTreshold) {
     .SubMenu {
+      .t-menusub__arrow {
+        display: none;
+      }
       .t-menu__list {
         padding: 0 20px;
         line-height: 2em;

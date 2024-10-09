@@ -1,0 +1,19 @@
+@import '../variables';
+
+.uc-Triggers {
+  .t-col {
+    background-color: rgba(var(--themeMoodRBG) / 15%);
+    padding: 20px;
+  }
+  @media (width >= $smallTreshold) {
+    .t-col {
+      border-radius: 8px;
+    }
+  }
+  @media (width >= $mobileTreshold) {
+    .t-card__container {
+      display: flex;
+      gap: 24px;
+    }
+  }
+}
