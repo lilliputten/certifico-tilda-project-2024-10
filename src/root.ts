@@ -12,6 +12,7 @@ import { initNavHeader } from './NavHeader';
 import { initTopMenu } from './TopMenu';
 import { initServicesGallery } from './ServicesGallery';
 import { initResponses } from './Responses';
+import { initClientsGallery } from './ClientsGallery';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;
@@ -28,6 +29,7 @@ function initPage() {
   initTopMenu();
   initServicesGallery();
   initResponses();
+  initClientsGallery();
   // setTimeout(initServicesGallery, 2000);
   // requestAnimationFrame(() => setTimeout(initServicesGallery, 1000));
 }

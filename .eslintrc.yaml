@@ -47,6 +47,7 @@ overrides:
       - '@typescript-eslint'
       - 'prettier' # prettier: Slighly slower (+~0.3s)
     rules:
+      no-var: 'warn'
       no-undef: 'off' # Disable js no-undef rule for typescript sources. Using ts2304 instead.
       # eslint-comments/no-use: 'warn'
       no-debugger: 'warn'

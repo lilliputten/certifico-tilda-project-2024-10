@@ -26,6 +26,7 @@
   }
   #{$BLOCK}__textwrapper {
     text-align: left;
+    padding-bottom: 1em;
   }
   @media (width > $mobileTreshold) {
     #{$BLOCK}__textwrapper {
