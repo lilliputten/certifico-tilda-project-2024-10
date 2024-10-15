@@ -10,6 +10,10 @@ $transitionTimeMs: 250ms;
 $animationTimeMs: 500ms;
 $disappearTimeMs: 1000ms;
 
+// Fonts
+$defaultFont: 'TildaSans', Arial, sans-serif;
+$defaultFontSize: 16px;
+
 // Adaptive layouts...
 $smallTreshold: 660px;
 $mobileTreshold: 980px;
@@ -18,3 +22,4 @@ $wideTreshold: 1200px;
 // Blocks
 $blockTopMenu: '.t229';
 $blockNavHeader: '.t821';
+$blockResponses: '.t734';

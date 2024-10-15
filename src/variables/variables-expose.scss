@@ -13,6 +13,9 @@
   --themeRedRBG: #{rgbComponents($themeRedColor)};
   --themeMoodRBG: #{rgbComponents($themeMoodColor)};
 
+  --defaultFont: #{$defaultFont};
+  --defaultFontSize: #{$defaultFontSize};
+
   --navbarHeight: #{$navbarHeight};
   --topMenuHeight: #{$topMenuHeight};
 

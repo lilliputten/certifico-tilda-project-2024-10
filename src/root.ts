@@ -1,6 +1,6 @@
 /** @module Scripts root module
  *  @since 2024.10.06, 22:40
- *  @changed 2024.10.08, 21:00
+ *  @changed 2024.10.15, 13:56
  */
 
 import './app-info.scss';
@@ -11,6 +11,7 @@ import './misc-styles';
 import { initNavHeader } from './NavHeader';
 import { initTopMenu } from './TopMenu';
 import { initServicesGallery } from './ServicesGallery';
+import { initResponses } from './Responses';
 
 // Print app info...
 const appVersion = process.env.APP_VERSION;
@@ -26,6 +27,7 @@ function initPage() {
   initNavHeader();
   initTopMenu();
   initServicesGallery();
+  initResponses();
   // setTimeout(initServicesGallery, 2000);
   // requestAnimationFrame(() => setTimeout(initServicesGallery, 1000));
 }
