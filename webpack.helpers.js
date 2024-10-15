@@ -2,13 +2,18 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 15:42
+ *  @changed 2024.10.15, 20:48
  */
 
 // eslint-disable-next-line no-unused-vars
 const webpack = require('webpack'); // Used only for typings
 
-const { scriptsAssetFile, stylesAssetFile, localServerPrefix } = require('./webpack.params');
+const {
+  scriptsAssetFile,
+  stylesAssetFile,
+  localServerPrefix,
+  appVersionTag,
+} = require('./webpack.params');
 
 /** @param {webpack.sources.Source | webpack.sources.ConcatSource} asset */
 function getSourceContent(asset) {
@@ -49,8 +54,8 @@ function getCompilationScriptsContent(compilation, opts = {}) {
   if (opts.isDev && opts.useLocalServedScripts) {
     return [
       '<!-- DEV: Locally linked scripts & styles -->',
-      `<script src="${localServerPrefix}${scriptsAssetFile}"></script>`,
-      `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}" />`,
+      `<script src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
+      `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}?${appVersionTag}" />`,
     ].join('\n');
   }
   // Get all assets hash from the compilation...

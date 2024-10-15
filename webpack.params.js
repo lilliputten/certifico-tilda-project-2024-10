@@ -2,7 +2,7 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 16:04
+ *  @changed 2024.10.15, 20:46
  */
 
 const fs = require('fs');
@@ -26,7 +26,7 @@ const appInfoContent = fs.readFileSync(path.resolve(__dirname, appInfoFile), {
   encoding: 'utf8',
 });
 const appInfo = JSON.parse(appInfoContent);
-const { projectName, version, timestamp } = appInfo;
+const { projectName, version, timestamp, timetag } = appInfo;
 const appVersionHash = [
   [
     // Debug & dev flags...
@@ -40,6 +40,7 @@ const appVersionHash = [
 ]
   .filter(Boolean)
   .join(': ');
+const appVersionTag = 'v.' + version + '-' + timetag;
 const outPath = isDev ? 'build-dev' : 'build';
 
 const scriptsAssetFile = 'scripts.js';
@@ -89,6 +90,7 @@ module.exports = {
   appInfoContent,
   appInfo,
   appVersionHash,
+  appVersionTag,
 
   outPath,
 
