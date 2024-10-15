@@ -1,8 +1,8 @@
 {
   "name": "certifico-included-assets",
   "version": "0.0.4",
-  "timetag": "241010-0130",
-  "timestamp": "2024.10.10 01:30 +0300",
+  "timetag": "241015-1458",
+  "timestamp": "2024.10.15 14:58 +0300",
   "changed": "2024.10.08, 21:56",
   "description": "Certifico assets for include in tilda site",
   "main": "index.html",
