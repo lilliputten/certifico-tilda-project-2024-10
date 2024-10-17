@@ -1,0 +1,41 @@
+@import '../variables';
+
+#allrecords .uc-PageVisual {
+  @include WithVisualColumn;
+  @include activeLink;
+  ul {
+    padding-left: 0 !important;
+    li {
+      display: flex;
+      // align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      list-style-type: none;
+      padding: 0.5em 0;
+      padding-left: 80px;
+      background-image: url('../assets/NiceList/item.svg');
+      background-position: left center;
+      background-repeat: no-repeat;
+      min-height: 40px;
+      a {
+        display: block;
+        color: #000;
+        font-weight: bold;
+      }
+      strong {
+        display: block;
+      }
+      a strong,
+      strong a {
+        color: var(--themeRedColor);
+      }
+      // a {
+      //   display: block;
+      //   color: #000;
+      //   strong {
+      //     color: var(--themeRedColor);
+      //   }
+      // }
+    }
+  }
+}

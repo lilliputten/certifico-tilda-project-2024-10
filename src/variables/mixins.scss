@@ -17,3 +17,25 @@
     }
   }
 }
+
+@mixin WithVisualColumn {
+  .t195__imgsection {
+    img {
+      border-radius: 20px;
+      border: 3px solid var(--themeRedColor);
+      padding: 0;
+    }
+  }
+  @media (width <= $mobileTreshold) {
+    .t-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .t-col {
+      order: 2;
+    }
+    .t195__imgsection {
+      order: 1;
+    }
+  }
+}
