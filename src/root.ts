@@ -13,7 +13,7 @@ import { initTopMenu } from './TopMenu';
 import { initServicesGallery } from './ServicesGallery';
 import { initResponses } from './Responses';
 import { initClientsGallery } from './ClientsGallery';
-import { initFaq } from './Faq';
+// import { initFaq } from './Faq';
 
 /** Print app info */
 function printAppInfo() {
@@ -33,7 +33,7 @@ function initPage() {
   initServicesGallery();
   initResponses();
   initClientsGallery();
-  initFaq();
+  // initFaq();
 }
 
 printAppInfo();

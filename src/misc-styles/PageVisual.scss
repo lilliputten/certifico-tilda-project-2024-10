@@ -7,7 +7,6 @@
     padding-left: 0 !important;
     li {
       display: flex;
-      // align-items: center;
       flex-direction: column;
       justify-content: center;
       list-style-type: none;
@@ -29,13 +28,6 @@
       strong a {
         color: var(--themeRedColor);
       }
-      // a {
-      //   display: block;
-      //   color: #000;
-      //   strong {
-      //     color: var(--themeRedColor);
-      //   }
-      // }
     }
   }
 }

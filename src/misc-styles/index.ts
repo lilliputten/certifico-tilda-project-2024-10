@@ -1,5 +1,6 @@
 import './About.scss';
 import './DevWarning.scss';
+import './Faq.scss';
 import './Footer.scss';
 import './HeroMenu.scss';
 import './News.scss';

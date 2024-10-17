@@ -9,7 +9,7 @@ const fs = require('fs');
 const path = require('path');
 
 const isDev = getTruthy(process.env.DEV);
-const isDebug = true; // getTruthy(process.env.DEBUG);
+const isDebug = false; // getTruthy(process.env.DEBUG);
 
 /** Use locally served assets (only for debug mode) */
 const useLocalServedScripts = true;
@@ -54,7 +54,7 @@ const devtool = isDev
     ? 'inline-source-map'
     : 'source-map'
   : generateSourcesForProduction
-    ? 'inline-source-map'
+    ? 'source-map'
     : undefined;
 const minimizeAssets = !isDev || !useLocalServedScripts;
 
