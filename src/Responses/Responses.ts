@@ -10,5 +10,7 @@ function addTitle(rootNode: HTMLElement) {
 
 export function initResponses() {
   const rootNode = document.querySelector('.uc-Responses') as HTMLElement;
-  addTitle(rootNode);
+  if (rootNode) {
+    addTitle(rootNode);
+  }
 }

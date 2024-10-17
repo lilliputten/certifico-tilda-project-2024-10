@@ -8,6 +8,9 @@ import {
 
 export function initClientsGallery() {
   const galleryWrapper = $('.uc-ClientsBlock');
+  if (!galleryWrapper[0]) {
+    return;
+  }
   galleryWrapper[0].classList.toggle('GalleryWrapper', true);
   const galleryContainer = galleryWrapper.find('.t467__descr');
   galleryContainer[0].classList.toggle('GalleryContainer', true);
@@ -15,6 +18,13 @@ export function initClientsGallery() {
   const owlCarousel = galleryContainer.find('.owl-carousel');
   const galleryContent = $('.uc-ClientsContent');
   const galleryContentItems = galleryContent.find('.tn-atom');
+  galleryContentItems.each((_n, node) => {
+    // Remove tn-atom classes: they cause tilda lazy load code exception
+    const img = node.getElementsByTagName('img')[0];
+    img?.classList.toggle('tn-atom__img', false);
+    node.classList.toggle('tn-atom', false);
+    node.classList.toggle('item', true);
+  });
   galleryContentItems.appendTo(owlCarousel);
   galleryContent.remove();
   // Start gallery...

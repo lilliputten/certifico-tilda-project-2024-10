@@ -10,5 +10,7 @@ function addTitle(rootNode: HTMLElement) {
 
 export function initFaq() {
   const rootNode = document.querySelector('.uc-Faq') as HTMLElement;
-  addTitle(rootNode);
+  if (rootNode) {
+    addTitle(rootNode);
+  }
 }
