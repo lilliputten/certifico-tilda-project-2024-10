@@ -53,9 +53,9 @@ function getAssetContent(asset) {
 function getCompilationScriptsContent(compilation, opts = {}) {
   if (opts.isDev && opts.useLocalServedScripts) {
     return [
-      '<!-- DEV: Locally linked scripts & styles -->',
-      `<script src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
+      '<!-- DEV: Locally linked compiled assets (scripts & styles) -->',
       `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}?${appVersionTag}" />`,
+      `<script src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
     ].join('\n');
   }
   // Get all assets hash from the compilation...
@@ -74,17 +74,27 @@ function getCompilationScriptsContent(compilation, opts = {}) {
     throw new Error('Style asset "' + stylesAssetFile + '" not found!');
   }
   const stylesContent = getAssetContent(stylesAsset);
-  if (opts.isDebug) {
-    return [
-      `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
-      `<script src="data:text/javascript;base64,${btoa(scriptsContent)}"></script>`,
-      `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
-      '',
-      `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
-      `<link rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
-      `<!-- DEBUG: Injected styles end (${stylesAssetFile}) -->`,
-    ].join('\n');
-  }
+  /* // UNUSED: Due to error...
+   * if (false || opts.isDebug) {
+   *   //  NOTE: We've got an error here:
+   *   //  - node:buffer:1255 btoa
+   *   //    node:buffer:1255:11
+   *   //
+   *   //  - webpack.helpers.js:78 getCompilationScriptsContent
+   *   //    D:/Work/Myhoster/240926-certificogroup/includes/webpack.helpers.js:78:35
+   *   //
+   *   const scriptsContentEncoded = btoa(scriptsContent);
+   *   return [
+   *     `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
+   *     `<script src="data:text/javascript;base64,${scriptsContentEncoded}"></script>`,
+   *     `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
+   *     '',
+   *     `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
+   *     `<link rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
+   *     `<!-- DEBUG: Injected styles end (${stylesAssetFile}) -->`,
+   *   ].join('\n');
+   * }
+   */
   return [
     `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
     '<script>',
