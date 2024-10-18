@@ -6,6 +6,7 @@ import './HeroMenu.scss';
 import './News.scss';
 import './PageTitle.scss';
 import './PageVisual.scss';
+import './PricesAndTerms.scss';
 import './Reasons.scss';
 import './RequestForm.scss';
 import './Responses.scss';

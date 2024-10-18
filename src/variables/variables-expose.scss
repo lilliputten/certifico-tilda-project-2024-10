@@ -13,6 +13,9 @@
   --themeRedRBG: #{rgbComponents($themeRedColor)};
   --themeMoodRBG: #{rgbComponents($themeMoodColor)};
 
+  --themeMoodLight50Color: #{$themeMoodLight50Color};
+  --themeMoodLight50RBG: #{rgbComponents($themeMoodLight50Color)};
+
   --defaultFont: #{$defaultFont};
   --defaultFontSize: #{$defaultFontSize};
 

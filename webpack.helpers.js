@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.15, 20:48
+ *  @changed 2024.10.18, 15:25
  */
 
 // eslint-disable-next-line no-unused-vars
@@ -86,28 +86,28 @@ function getCompilationScriptsContent(compilation, opts = {}) {
   if (useInjectedAssets && opts.isDebug) {
     const scriptsContentEncoded = btoa(scriptsContent);
     return [
-      `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
-      `<script src="data:text/javascript;base64,${scriptsContentEncoded}"></script>`,
-      `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
-      '',
       `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
       `<link rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
       `<!-- DEBUG: Injected styles end (${stylesAssetFile}) -->`,
+      '',
+      `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
+      `<script src="data:text/javascript;base64,${scriptsContentEncoded}"></script>`,
+      `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
     ].join('\n');
   }
   // TODO: Remove source map lines?
   return [
-    `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
-    '<script>',
-    scriptsContent,
-    '</script>',
-    `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
-    '',
     `<!-- Inline styles begin (${stylesAssetFile}) -->`,
     '<style>',
     stylesContent,
     '</style>',
     `<!-- Inline styles end (${stylesAssetFile}) -->`,
+    '',
+    `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
+    '<script>',
+    scriptsContent,
+    '</script>',
+    `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
   ].join('\n');
 }
 
