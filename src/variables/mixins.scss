@@ -42,9 +42,17 @@
 
 @mixin SectionTitle {
   font-size: 24px;
+  font-weight: 500;
   color: var(--themeMoodLight50Color);
   border-bottom: 2px solid rgba(var(--themeMoodLight50RBG) / 50%);
+  text-transform: uppercase;
+  text-align: left;
   padding-bottom: 0.25em;
   margin-bottom: 0.75em;
   max-width: none;
 }
+@mixin SectionDescr {
+  text-align: left;
+  max-width: none;
+}
+

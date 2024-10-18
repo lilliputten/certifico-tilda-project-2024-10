@@ -44,6 +44,14 @@ function getAssetContent(asset) {
 }
 
 /**
+ * @param {string} content
+ */
+function removeSourceMaps(content) {
+  content = content.replace(/\s*\/.# sourceMappingURL=.*/, '');
+  return content;
+}
+
+/**
  * @param {webpack.Compilation} compilation
  * @param {object} [opts]
  * @param {boolean} [opts.isDev]
@@ -99,13 +107,13 @@ function getCompilationScriptsContent(compilation, opts = {}) {
   return [
     `<!-- Inline styles begin (${stylesAssetFile}) -->`,
     '<style>',
-    stylesContent,
+    removeSourceMaps(stylesContent),
     '</style>',
     `<!-- Inline styles end (${stylesAssetFile}) -->`,
     '',
     `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
     '<script>',
-    scriptsContent,
+    removeSourceMaps(scriptsContent),
     '</script>',
     `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
   ].join('\n');

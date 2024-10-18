@@ -1,4 +1,5 @@
 import './About.scss';
+import './Certificates.scss';
 import './DevWarning.scss';
 import './Faq.scss';
 import './Footer.scss';
@@ -14,5 +15,7 @@ import './RequestForm.scss';
 import './Responses.scss';
 import './SectionTitle.scss';
 import './SocialIcon.scss';
+import './TeamList.scss';
+import './Text.scss';
 import './TopHero.scss';
 import './Triggers.scss';
