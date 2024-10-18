@@ -1,5 +1,5 @@
 /** @desc Update build date/time tag file with current timestamp
- *  @changed 2024.10.10, 01:31
+ *  @changed 2024.10.18, 15:14
  */
 /* eslint-disable no-console */
 
@@ -82,7 +82,7 @@ if (fs.existsSync(srcPath)) {
   console.log('Creating', buildInfoJsonFilename, 'file...');
   fs.writeFileSync(buildInfoJsonFileName, JSON.stringify(appInfo, undefined, 2) + '\n', 'utf8');
   // Scss params...
-  const scssInfo = ':root { --APP-INFO:\n  ' + appVersionHash + ';\n}';
+  const scssInfo = ':root { --APP-INFO:\n  ' + appVersionHash + ';\n}\n';
   const buildInfoScssFileName = path.resolve(srcPath, buildInfoScssFilename);
   console.log('Creating', buildInfoScssFilename, 'file...');
   fs.writeFileSync(buildInfoScssFileName, scssInfo, 'utf8');
