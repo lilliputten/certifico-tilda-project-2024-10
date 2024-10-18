@@ -18,7 +18,7 @@
       flex-wrap: wrap;
       gap: 1em;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: flex-start;
       .t-input-title {
         height: auto;
       }
@@ -26,6 +26,9 @@
       .t-input-group {
         flex: 1;
         margin: 0;
+      }
+      .t-form__submit {
+        margin-top: 2.1em; // ATTENTION: This is an empirically calculated value (to align the button with the input fields)
       }
       .t-form__errorbox-middle {
         &:empty {
