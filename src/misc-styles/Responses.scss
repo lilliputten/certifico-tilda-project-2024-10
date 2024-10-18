@@ -6,6 +6,18 @@
 
   @include activeLink;
 
+  &:before {
+    display: block;
+    content: 'Отзывы о работе с нами';
+    font-family: var(--defaultFont);
+    color: #fff;
+    font-size: 36px;
+    text-transform: uppercase;
+    padding-top: 1.75em;
+    padding-bottom: 0.25em;
+    text-align: center;
+  }
+
   .Title {
     font-family: var(--defaultFont);
     color: #fff;

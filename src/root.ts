@@ -11,9 +11,9 @@ import './misc-styles';
 import { initNavHeader } from './NavHeader';
 import { initTopMenu } from './TopMenu';
 import { initServicesGallery } from './ServicesGallery';
-import { initResponses } from './Responses';
+// import { initResponses } from './Responses';
 import { initClientsGallery } from './ClientsGallery';
-// import { initFaq } from './Faq';
+import { initInlineForm } from './InlineForm';
 
 /** Print app info */
 function printAppInfo() {
@@ -31,9 +31,9 @@ function initPage() {
   initNavHeader();
   initTopMenu();
   initServicesGallery();
-  initResponses();
+  // initResponses();
   initClientsGallery();
-  // initFaq();
+  initInlineForm();
 }
 
 printAppInfo();
