@@ -2,17 +2,16 @@
 
 #allrecords .uc-PricesAndTerms {
   .t-title {
-    font-size: 24px;
-    color: var(--themeMoodLight50Color);
-    border-bottom: 2px solid rgba(var(--themeMoodLight50RBG) / 50%);
-    padding-bottom: 0.25em;
-    margin-bottom: 0.5em;
+    @include SectionTitle;
+    // font-size: 24px;
+    // color: var(--themeMoodLight50Color);
+    // border-bottom: 2px solid rgba(var(--themeMoodLight50RBG) / 50%);
+    // padding-bottom: 0.25em;
+    // margin-bottom: 0.5em;
   }
   .t1095 .t-list__item {
-    // border: 2px solid green;
     margin-top: 1em;
   }
-  // @media (width <= $mobileTreshold) {
   .t-container {
     display: flex;
     flex-direction: row;

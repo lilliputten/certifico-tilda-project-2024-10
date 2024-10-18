@@ -39,3 +39,12 @@
     }
   }
 }
+
+@mixin SectionTitle {
+  font-size: 24px;
+  color: var(--themeMoodLight50Color);
+  border-bottom: 2px solid rgba(var(--themeMoodLight50RBG) / 50%);
+  padding-bottom: 0.25em;
+  margin-bottom: 0.75em;
+  max-width: none;
+}
