@@ -56,17 +56,31 @@
   max-width: none;
 }
 
-@mixin NumberedColumnsBlock {
+@mixin BlockWithTitle {
   .t-title {
     @include SectionTitle;
   }
   .t-descr {
     @include SectionDescr;
   }
+}
+@mixin ColumnsBlock {
   .t-col {
     break-inside: avoid-column;
     margin-top: 30px !important;
   }
+}
+@mixin ColumnsBlock4 {
+  @include ColumnsBlock;
+  @media (width > $mobileTreshold) {
+    .t510__container {
+      columns: 4;
+      display: block;
+    }
+  }
+}
+@mixin ColumnsBlock3 {
+  @include ColumnsBlock;
   @media (width > $mobileTreshold) {
     .t510__container {
       columns: 3;
@@ -74,8 +88,17 @@
     }
   }
 }
-@mixin NumberedColumnsBlockOpaque {
-  @include NumberedColumnsBlock;
+@mixin ColumnsBlock2 {
+  @include ColumnsBlock;
+  @media (width > $mobileTreshold) {
+    .t510__container {
+      columns: 2;
+      display: block;
+    }
+  }
+}
+@mixin OpaqueCircleItems {
+  // @include ColumnsBlock2;
   .t510__circle {
     background-color: var(--themeRedColor);
     color: #fff !important;

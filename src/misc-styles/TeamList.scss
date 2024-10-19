@@ -2,5 +2,6 @@
 
 #allrecords .uc-TeamList {
   @include activeLink;
-  @include NumberedColumnsBlock;
+  @include BlockWithTitle;
+  @include ColumnsBlock3;
 }
