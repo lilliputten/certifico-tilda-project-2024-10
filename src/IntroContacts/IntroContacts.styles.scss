@@ -1,0 +1,18 @@
+@import '../variables';
+
+#allrecords .uc-Intro-Contacts {
+  .t-text {
+    .ContactsItem {
+      font-weight: normal !important;
+      display: flex;
+      gap: 0.75em;
+      margin: 1em 0;
+      & + br {
+        display: none;
+      }
+    }
+    a.ContactsItem {
+      color: var(--themeRedColor);
+    }
+  }
+}

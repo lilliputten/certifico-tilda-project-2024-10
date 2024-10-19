@@ -1,8 +1,13 @@
 @import '../variables';
 
-#allrecords .uc-PageVisual {
+#allrecords .uc-Intro-Contacts,
+#allrecords .uc-Intro-List,
+#allrecords .uc-Intro {
   @include WithVisualColumn;
   @include activeLink;
+}
+
+#allrecords .uc-Intro-List {
   ul {
     padding-left: 0 !important;
     li {
@@ -27,6 +32,12 @@
       a strong,
       strong a {
         color: var(--themeRedColor);
+      }
+      &:hover {
+        a {
+          text-decoration: underline;
+          opacity: 0.75;
+        }
       }
     }
   }

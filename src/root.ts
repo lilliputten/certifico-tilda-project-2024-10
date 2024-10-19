@@ -14,6 +14,7 @@ import { initServicesGallery } from './ServicesGallery';
 // import { initResponses } from './Responses';
 import { initClientsGallery } from './ClientsGallery';
 import { initInlineForm } from './InlineForm';
+import { initIntroContacts } from './IntroContacts';
 
 /** Print app info */
 function printAppInfo() {
@@ -34,6 +35,7 @@ function initPage() {
   // initResponses();
   initClientsGallery();
   initInlineForm();
+  initIntroContacts();
 }
 
 printAppInfo();

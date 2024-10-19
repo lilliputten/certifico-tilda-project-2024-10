@@ -1,0 +1,18 @@
+@import '../variables';
+
+#allrecords .uc-Partners {
+  @include activeLink;
+  .t1032__content {
+    padding: 1em 0;
+  }
+  .t1032__img {
+    width: auto !important;
+    margin-bottom: 1em;
+  }
+  .t-card__title {
+    margin-bottom: 0.25em;
+  }
+  .t1032__separator {
+    display: none;
+  }
+}

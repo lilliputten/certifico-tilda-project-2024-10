@@ -1,0 +1,6 @@
+@import '../variables';
+
+#allrecords .uc-NumColumns {
+  @include activeLink;
+  @include NumberedColumnsBlockOpaque;
+}

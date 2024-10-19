@@ -2,20 +2,5 @@
 
 #allrecords .uc-TeamList {
   @include activeLink;
-  .t-title {
-    @include SectionTitle;
-  }
-  .t-descr {
-    @include SectionDescr;
-  }
-  .t-col {
-    break-inside: avoid-column;
-    margin-top: 30px !important;
-  }
-  @media (width > $mobileTreshold) {
-    .t510__container {
-      columns: 3;
-      display: block;
-    }
-  }
+  @include NumberedColumnsBlock;
 }
