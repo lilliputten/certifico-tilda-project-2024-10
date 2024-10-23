@@ -1,0 +1,44 @@
+@import '../variables';
+
+#allrecords .uc-Intro-Contacts,
+#allrecords .uc-Intro-List,
+#allrecords .uc-Intro {
+  @include WithVisualColumn;
+  @include activeLink;
+}
+
+#allrecords .uc-Intro-List {
+  ul {
+    padding-left: 0 !important;
+    li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      list-style-type: none;
+      padding: 0.5em 0;
+      padding-left: 80px;
+      background-image: url('../assets/NiceList/item.svg');
+      background-position: left center;
+      background-repeat: no-repeat;
+      min-height: 40px;
+      a {
+        display: block;
+        color: #000;
+        font-weight: bold;
+      }
+      strong {
+        display: block;
+      }
+      a strong,
+      strong a {
+        color: var(--themeRedColor);
+      }
+      &:hover {
+        a {
+          text-decoration: underline;
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@import '../variables';
+
+.uc-InlineForm {
+  @include activeLink;
+  .t698__descr {
+    margin-bottom: 1.5em;
+  }
+  .t698__form-bottom-text {
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+  @media (width > $mobileTreshold) {
+    .t-form__inputsbox {
+      margin: 0;
+      // width: 100%;
+      max-width: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: space-between;
+      align-items: flex-start;
+      .t-input-title {
+        height: auto;
+      }
+      .t-form__submit,
+      .t-input-group {
+        flex: 1;
+        margin: 0;
+      }
+      .t-form__submit {
+        margin-top: 2.1em; // ATTENTION: This is an empirically calculated value (to align the button with the input fields)
+      }
+      .t-form__errorbox-middle {
+        &:empty {
+          display: none;
+        }
+        margin: 0;
+        order: 4;
+        // flex: 3;
+        width: 100%;
+      }
+      .t-form__errorbox-wrapper {
+        margin: 0;
+      }
+    }
+  }
+}

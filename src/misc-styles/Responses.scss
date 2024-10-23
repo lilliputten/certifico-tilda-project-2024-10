@@ -1,0 +1,57 @@
+@import '../variables';
+
+.uc-Responses {
+  $BLOCK: $blockResponses;
+  background-color: var(--themeMoodColor);
+
+  @include activeLink;
+
+  &:before {
+    display: block;
+    content: 'Отзывы о работе с нами';
+    font-family: var(--defaultFont);
+    color: #fff;
+    font-size: 36px;
+    text-transform: uppercase;
+    padding-top: 1.75em;
+    padding-bottom: 0.25em;
+    text-align: center;
+  }
+
+  .Title {
+    font-family: var(--defaultFont);
+    color: #fff;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: normal;
+    padding-top: 1.5em;
+    text-align: center;
+  }
+  #{$BLOCK}__wrapper {
+    width: auto;
+  }
+  #{$BLOCK}__textwrapper {
+    text-align: left;
+    padding-bottom: 1em;
+  }
+  @media (width > $mobileTreshold) {
+    #{$BLOCK}__textwrapper {
+      padding-left: 100px !important;
+      background-image: url('../assets/Responses/quote.svg');
+      background-position: left top;
+      background-repeat: no-repeat;
+    }
+  }
+  @media (width <= $smallTreshold) {
+    .t-title {
+      font-size: var(--defaultFontSize) !important;
+    }
+  }
+  .t-slds__bullet {
+    &:not(.t-slds__bullet_active) {
+      button {
+        border-color: var(--themeMoodColor) !important;
+      }
+    }
+  }
+}

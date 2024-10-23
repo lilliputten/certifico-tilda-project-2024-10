@@ -4,7 +4,7 @@
 
 #allrecords .uc-NavHeader {
   $BLOCK: $blockNavHeader;
-  $mobileTreshold: 980px;
+  // $mobileTreshold: 980px;
   $logoWidth: 205px;
   $logoHeight: 55px;
 
@@ -13,17 +13,13 @@
   $smallLogoHeight: calc($logoHeight / $smallLogoScale);
 
   // Links...
-  a {
-    transition: all var(--transitionTimeMs);
-    &:hover {
-      opacity: 0.75;
-      text-decoration: underline;
-    }
-  }
+  @include activeLink;
 
   // Colors...
   > #{$BLOCK} {
     background-color: #fff;
+    border-bottom: 1px solid var(--themeMoodColor);
+    box-shadow: 0 10px 15px 0 rgba(0 0 0 / 50%);
   }
   #{$BLOCK}__logo-descr {
     color: #000;
@@ -52,6 +48,9 @@
 
   @media (width <= $mobileTreshold) {
     .SubMenu {
+      .t-menusub__arrow {
+        display: none;
+      }
       .t-menu__list {
         padding: 0 20px;
         line-height: 2em;

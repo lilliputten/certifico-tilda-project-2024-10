@@ -1,0 +1,21 @@
+@import '../variables';
+
+.uc-Faq {
+  @include activeLink;
+
+  &:before {
+    display: block;
+    content: 'Вопросы и ответы';
+    font-family: var(--defaultFont);
+    color: var(--themeRedColor);
+    font-size: 36px;
+    text-transform: uppercase;
+    padding-bottom: 1.5em;
+    text-align: center;
+  }
+
+  .t668__icon {
+    top: auto;
+    transform: none;
+  }
+}

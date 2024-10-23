@@ -1,0 +1,18 @@
+@import '../variables';
+
+.uc-News {
+  @include basicActiveLink;
+  .t-feed__post-bgimg {
+    border-radius: 8px;
+  }
+  .t-title {
+    margin-bottom: 1.25em !important;
+    color: var(--themeRedColor) !important;
+    text-transform: uppercase;
+    font-weight: normal !important;
+    font-size: 36px;
+  }
+  .t1004__scroll-icon-wrapper {
+    display: none;
+  }
+}

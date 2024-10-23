@@ -1,0 +1,14 @@
+@import '../variables';
+
+#allrecords .uc-Certificates {
+  @include activeLink;
+  .t1032__content {
+    padding: 0;
+  }
+  .t1032__separator {
+    // display: none;
+  }
+  .t1032__img {
+    margin-bottom: 1em;
+  }
+}

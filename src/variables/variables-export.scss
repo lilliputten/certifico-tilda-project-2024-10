@@ -5,4 +5,10 @@
   // Export variables (see re-exports in `cssVariables.ts`)
   blockTopMenu: #{$blockTopMenu};
   blockNavHeader: #{$blockNavHeader};
+  blockResponses: #{$blockResponses};
+
+  // Tresholds...
+  smallTreshold: #{$smallTreshold};
+  mobileTreshold: #{$mobileTreshold};
+  wideTreshold: #{$wideTreshold};
 }

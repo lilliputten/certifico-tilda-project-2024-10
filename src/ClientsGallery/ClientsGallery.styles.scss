@@ -1,0 +1,40 @@
+@import '../variables';
+
+.uc-ClientsBlock {
+  $BLOCK: '.t467';
+  $galleryHeight: 80px;
+
+  @include activeLink;
+
+  // border: 3px dashed green;
+  #{$BLOCK} {
+    position: relative;
+  }
+  .t-slds__arrow {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin-top: 0px;
+    bottom: 0;
+    top: auto;
+  }
+  .GalleryContainer {
+    height: $galleryHeight;
+    position: relative;
+    // border: 1px dashed blue;
+  }
+  .owl-stage-outer {
+    height: $galleryHeight;
+  }
+  .owl-item {
+    // border: 1px dashed green;
+    display: flex;
+    justify-content: center;
+    height: $galleryHeight;
+    align-items: center;
+  }
+  .owl-nav {
+    position: absolute;
+    top: 0px;
+  }
+}

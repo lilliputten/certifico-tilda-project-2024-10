@@ -9,16 +9,18 @@ export function initTopMenu() {
   const menuNode = document.querySelector(menuSelector);
   const navHeaderWrapperNode = document.querySelector(navHeaderWrapperSelector);
   // Clone menu node...
-  const menuNodeCopy = menuNode.cloneNode(true) as Element;
-  // Clean styles...
-  menuNodeCopy.removeAttribute('style');
-  menuNodeCopy.classList.toggle('SubMenu', true);
-  // Add menu node copy to the hav header...
-  navHeaderWrapperNode.append(menuNodeCopy);
-  /* console.log('[TopMenu:initTopMenu]', {
-   *   menuNodeCopy,
-   *   menuNode,
-   *   navHeaderWrapperNode,
-   * });
-   */
+  if (menuNode) {
+    const menuNodeCopy = menuNode.cloneNode(true) as Element;
+    // Clean styles...
+    menuNodeCopy.removeAttribute('style');
+    menuNodeCopy.classList.toggle('SubMenu', true);
+    // Add menu node copy to the hav header...
+    navHeaderWrapperNode.append(menuNodeCopy);
+    /* console.log('[TopMenu:initTopMenu]', {
+     *   menuNodeCopy,
+     *   menuNode,
+     *   navHeaderWrapperNode,
+     * });
+     */
+  }
 }

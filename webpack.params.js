@@ -2,14 +2,14 @@
 
 /** @module Webpack params
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 16:04
+ *  @changed 2024.10.15, 20:46
  */
 
 const fs = require('fs');
 const path = require('path');
 
 const isDev = getTruthy(process.env.DEV);
-const isDebug = true; // getTruthy(process.env.DEBUG);
+const isDebug = false; // getTruthy(process.env.DEBUG);
 
 /** Use locally served assets (only for debug mode) */
 const useLocalServedScripts = true;
@@ -26,7 +26,7 @@ const appInfoContent = fs.readFileSync(path.resolve(__dirname, appInfoFile), {
   encoding: 'utf8',
 });
 const appInfo = JSON.parse(appInfoContent);
-const { projectName, version, timestamp } = appInfo;
+const { projectName, version, timestamp, timetag } = appInfo;
 const appVersionHash = [
   [
     // Debug & dev flags...
@@ -40,6 +40,7 @@ const appVersionHash = [
 ]
   .filter(Boolean)
   .join(': ');
+const appVersionTag = 'v.' + version + '-' + timetag;
 const outPath = isDev ? 'build-dev' : 'build';
 
 const scriptsAssetFile = 'scripts.js';
@@ -53,7 +54,7 @@ const devtool = isDev
     ? 'inline-source-map'
     : 'source-map'
   : generateSourcesForProduction
-    ? 'inline-source-map'
+    ? 'source-map'
     : undefined;
 const minimizeAssets = !isDev || !useLocalServedScripts;
 
@@ -89,6 +90,7 @@ module.exports = {
   appInfoContent,
   appInfo,
   appVersionHash,
+  appVersionTag,
 
   outPath,
 

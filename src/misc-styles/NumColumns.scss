@@ -1,0 +1,22 @@
+@import '../variables';
+
+#allrecords .uc-NumColumns2 {
+  @include activeLink;
+  @include BlockWithTitle;
+  @include ColumnsBlock2;
+  @include OpaqueCircleItems;
+}
+
+#allrecords .uc-NumColumns3 {
+  @include activeLink;
+  @include BlockWithTitle;
+  @include ColumnsBlock3;
+  @include OpaqueCircleItems;
+}
+
+#allrecords .uc-NumColumns4 {
+  @include activeLink;
+  @include BlockWithTitle;
+  @include ColumnsBlock4;
+  @include OpaqueCircleItems;
+}

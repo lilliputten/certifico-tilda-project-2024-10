@@ -1,0 +1,11 @@
+@import '../variables';
+
+#allrecords .uc-SectionTitle {
+  @include activeLink;
+  .t-title {
+    @include SectionTitle;
+  }
+  .t-descr {
+    @include SectionDescr;
+  }
+}

@@ -1,0 +1,38 @@
+@import '../variables';
+
+.uc-Footer {
+  @include activeLink;
+
+  // hyphens: auto; // TODO: Long words wrap?
+
+  border-top: 10px solid #111922;
+
+  .t977__descr {
+    line-height: 1.4;
+  }
+
+  .t977__col-inner {
+    @media (width <= $mobileTreshold) {
+      display: block;
+      float: none;
+    }
+    &:last-child {
+      strong a {
+        // font-size: 24px;
+        font-size: 150%;
+        color: var(--themeRedColor) !important;
+        font-weight: normal;
+        white-space: nowrap;
+      }
+      em,
+      em a {
+        color: #aaa;
+        font-style: normal;
+      }
+    }
+  }
+
+  .t977__descr a {
+    display: initial;
+  }
+}

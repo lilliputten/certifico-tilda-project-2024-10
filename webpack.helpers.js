@@ -2,13 +2,18 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.07, 15:42
+ *  @changed 2024.10.18, 15:25
  */
 
 // eslint-disable-next-line no-unused-vars
 const webpack = require('webpack'); // Used only for typings
 
-const { scriptsAssetFile, stylesAssetFile, localServerPrefix } = require('./webpack.params');
+const {
+  scriptsAssetFile,
+  stylesAssetFile,
+  localServerPrefix,
+  appVersionTag,
+} = require('./webpack.params');
 
 /** @param {webpack.sources.Source | webpack.sources.ConcatSource} asset */
 function getSourceContent(asset) {
@@ -39,6 +44,14 @@ function getAssetContent(asset) {
 }
 
 /**
+ * @param {string} content
+ */
+function removeSourceMaps(content) {
+  content = content.replace(/\s*\/.# sourceMappingURL=.*/, '');
+  return content;
+}
+
+/**
  * @param {webpack.Compilation} compilation
  * @param {object} [opts]
  * @param {boolean} [opts.isDev]
@@ -48,9 +61,9 @@ function getAssetContent(asset) {
 function getCompilationScriptsContent(compilation, opts = {}) {
   if (opts.isDev && opts.useLocalServedScripts) {
     return [
-      '<!-- DEV: Locally linked scripts & styles -->',
-      `<script src="${localServerPrefix}${scriptsAssetFile}"></script>`,
-      `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}" />`,
+      '<!-- DEV: Locally linked compiled assets (scripts & styles) -->',
+      `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}?${appVersionTag}" />`,
+      `<script src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
     ].join('\n');
   }
   // Get all assets hash from the compilation...
@@ -69,29 +82,40 @@ function getCompilationScriptsContent(compilation, opts = {}) {
     throw new Error('Style asset "' + stylesAssetFile + '" not found!');
   }
   const stylesContent = getAssetContent(stylesAsset);
-  if (opts.isDebug) {
+  // UNUSED: Due to error...
+  //  NOTE: We've got an error here:
+  //  - node:buffer:1255 btoa
+  //    node:buffer:1255:11
+  //
+  //  - webpack.helpers.js:78 getCompilationScriptsContent
+  //    D:/Work/Myhoster/240926-certificogroup/includes/webpack.helpers.js:78:35
+  //
+  const useInjectedAssets = false;
+  if (useInjectedAssets && opts.isDebug) {
+    const scriptsContentEncoded = btoa(scriptsContent);
     return [
-      `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
-      `<script src="data:text/javascript;base64,${btoa(scriptsContent)}"></script>`,
-      `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
-      '',
       `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
       `<link rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
       `<!-- DEBUG: Injected styles end (${stylesAssetFile}) -->`,
+      '',
+      `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
+      `<script src="data:text/javascript;base64,${scriptsContentEncoded}"></script>`,
+      `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
     ].join('\n');
   }
+  // TODO: Remove source map lines?
   return [
-    `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
-    '<script>',
-    scriptsContent,
-    '</script>',
-    `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
-    '',
     `<!-- Inline styles begin (${stylesAssetFile}) -->`,
     '<style>',
-    stylesContent,
+    removeSourceMaps(stylesContent),
     '</style>',
     `<!-- Inline styles end (${stylesAssetFile}) -->`,
+    '',
+    `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
+    '<script>',
+    removeSourceMaps(scriptsContent),
+    '</script>',
+    `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
   ].join('\n');
 }
 
