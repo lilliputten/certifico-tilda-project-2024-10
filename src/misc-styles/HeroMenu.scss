@@ -6,7 +6,9 @@
     height: auto;
   }
   @include activeLink;
-  .t-menusub__menu_show {
+  .t-menusub__menu--fullscreen {
+    // Desktop: t-menusub__menu t-menusub__menu_bottom t-menusub__menu_show
+    // Mobile (full-screen): t-menusub__menu t-menusub__menu--fullscreen t-menusub__menu_top t-menusub__menu_show t-menusub__menu-custompos
     background-color: var(--themeMoodColor) !important;
   }
 }

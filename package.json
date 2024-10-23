@@ -1,9 +1,9 @@
 {
-  "name": "certifico-included-assets",
+  "name": "certifico-tilda-project-2024-10",
   "version": "0.0.12",
-  "timetag": "241023-1442",
-  "timestamp": "2024.10.23 14:42 +0300",
-  "changed": "2024.10.15, 20:49",
+  "timetag": "241023-1631",
+  "timestamp": "2024.10.23 16:31 +0300",
+  "changed": "2024.10.23, 15:00",
   "description": "Certifico assets for include in tilda site",
   "main": "index.html",
   "author": "lilliputten@gmail.com",
@@ -12,10 +12,10 @@
   "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
   "repository": {
     "type": "git",
-    "url": "git@github.com:lilliputten/certifico-includes.git"
+    "url": "git@github.com:lilliputten/certifico-tilda-project-2024-10.git"
   },
   "bugs": {
-    "url": "git@github.com:lilliputten/certifico-includes.git/issues"
+    "url": "git@github.com:lilliputten/certifico-tilda-project-2024-10.git/issues"
   },
   "unusedDependencies": {
     "gulp-autoprefixer": "^9.0.0",
