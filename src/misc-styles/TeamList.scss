@@ -4,4 +4,10 @@
   @include activeLink;
   @include BlockWithTitle;
   @include ColumnsBlock3;
+  .t510__container {
+    &:before,
+    &:after {
+      display: none;
+    }
+  }
 }

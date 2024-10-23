@@ -6,4 +6,7 @@
     height: auto;
   }
   @include activeLink;
+  .t-menusub__menu_show {
+    background-color: var(--themeMoodColor) !important;
+  }
 }
