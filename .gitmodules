@@ -1,3 +1,0 @@
-[submodule "publish"]
-	path = publish
-	url = git@github.com:lilliputten/certifico-included-assets.git

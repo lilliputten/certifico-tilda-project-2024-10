@@ -17,6 +17,7 @@ yarn-error.log*
 
 .netlify
 
+.gitmodules
 .env.*
 
 # Temporariy, swap & ignored files
