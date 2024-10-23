@@ -1,11 +1,11 @@
 {
-  "appVersionHash": "certifico-included-assets v.0.0.7 / 2024.10.17 21:49 +0300",
-  "projectName": "certifico-included-assets",
-  "timestamp": "2024.10.17 21:49 +0300",
-  "timetag": "241017-2149",
-  "version": "0.0.7",
-  "currentTimeStr": "2024.10.17 21:49 +0300",
-  "currentTimeTag": "241017-2149",
-  "gitCommitHash": "7656d72",
-  "gitBranch": "3-add-hero-visual-and-second-menu-blocks"
+  "appVersionHash": "certifico-tilda-project-2024-10 v.0.0.12 / 2024.10.23 16:31 +0300",
+  "projectName": "certifico-tilda-project-2024-10",
+  "timestamp": "2024.10.23 16:31 +0300",
+  "timetag": "241023-1631",
+  "version": "0.0.12",
+  "currentTimeStr": "2024.10.23 16:31 +0300",
+  "currentTimeTag": "241023-1631",
+  "gitCommitHash": "6ed61b9",
+  "gitBranch": "main"
 }
