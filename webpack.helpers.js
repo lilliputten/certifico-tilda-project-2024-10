@@ -8,6 +8,8 @@
 // eslint-disable-next-line no-unused-vars
 const webpack = require('webpack'); // Used only for typings
 
+const fs = require('fs');
+
 const {
   scriptsAssetFile,
   stylesAssetFile,
@@ -62,8 +64,8 @@ function getCompilationScriptsContent(compilation, opts = {}) {
   if (opts.isDev && opts.useLocalServedScripts) {
     return [
       '<!-- DEV: Locally linked compiled assets (scripts & styles) -->',
-      `<link rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}?${appVersionTag}" />`,
-      `<script src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
+      `<link id="linkedStyles" rel="stylesheet" type="text/css" href="${localServerPrefix}${stylesAssetFile}?${appVersionTag}" />`,
+      `<script id="linkedScripts" onerror="devScriptError(this)" type="text/javascript" src="${localServerPrefix}${scriptsAssetFile}?${appVersionTag}"></script>`,
     ].join('\n');
   }
   // Get all assets hash from the compilation...
@@ -95,30 +97,36 @@ function getCompilationScriptsContent(compilation, opts = {}) {
     const scriptsContentEncoded = btoa(scriptsContent);
     return [
       `<!-- DEBUG: Injected styles begin (${stylesAssetFile}) -->`,
-      `<link rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
+      `<link id="injectedStyles" rel="stylesheet" type="text/css" href="data:text/css;base64,${btoa(stylesContent)}" />`,
       `<!-- DEBUG: Injected styles end (${stylesAssetFile}) -->`,
       '',
       `<!-- DEBUG: Injected scripts begin (${scriptsAssetFile}) -->`,
-      `<script src="data:text/javascript;base64,${scriptsContentEncoded}"></script>`,
+      `<script id="injectedScripts" type="text/javascript" src="data:text/javascript;base64,${scriptsContentEncoded}"></script>`,
       `<!-- DEBUG: Injected scripts end (${scriptsAssetFile}) -->`,
     ].join('\n');
   }
   // TODO: Remove source map lines?
   return [
     `<!-- Inline styles begin (${stylesAssetFile}) -->`,
-    '<style>',
+    '<style type="text/css">',
     removeSourceMaps(stylesContent),
     '</style>',
     `<!-- Inline styles end (${stylesAssetFile}) -->`,
     '',
     `<!-- Inline scripts begin (${scriptsAssetFile}) -->`,
-    '<script>',
+    '<script type="text/javascript">',
     removeSourceMaps(scriptsContent),
     '</script>',
     `<!-- Inline scripts end (${scriptsAssetFile}) -->`,
   ].join('\n');
 }
 
+/** @param {string} fileName */
+function readContent(fileName) {
+  return fs.readFileSync(fileName, { encoding: 'utf8' }).trim();
+}
+
 module.exports = {
   getCompilationScriptsContent,
+  readContent,
 };
