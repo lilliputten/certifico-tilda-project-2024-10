@@ -18,8 +18,10 @@
   // Colors...
   > #{$BLOCK} {
     background-color: #fff;
-    border-bottom: 1px solid var(--themeMoodColor);
-    box-shadow: 0 10px 15px 0 rgba(0 0 0 / 50%);
+    @media (width <= $mobileTreshold) {
+      // border-bottom: 1px solid var(--themeMoodColor);
+      box-shadow: 0 10px 15px 0 rgba(0 0 0 / 50%);
+    }
   }
   #{$BLOCK}__logo-descr {
     color: #000;
@@ -112,6 +114,19 @@
         width: $smallLogoWidth !important;
         max-width: $smallLogoWidth !important;
         height: $smallLogoHeight;
+      }
+    }
+  }
+
+  a.t-menu__link-item {
+    // Active menu item
+    &.t-active {
+      color: var(--themeRedColor) !important;
+      opacity: 1;
+      text-decoration: underline;
+      &::after {
+        display: none;
+        border-color: #fff;
       }
     }
   }

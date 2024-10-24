@@ -1,10 +1,9 @@
 @use '../variables' as *;
 
-.uc-TopMenu {
+#allrecords .uc-TopMenu {
   $BLOCK: $blockTopMenu;
   $mobileTreshold: 980px;
 
-  // display: none;
   position: fixed;
   width: 100%;
   z-index: 995;
@@ -16,5 +15,18 @@
   // Hide for small screens: NavHeader SubMenu will be visible
   @media (width <= $mobileTreshold) {
     display: none;
+  }
+
+  a.t-menu__link-item {
+    // Active menu item
+    &.t-active {
+      color: #fff !important;
+      text-decoration: underline;
+      opacity: 1 !important;
+      &::after {
+        display: none;
+        border-color: #fff;
+      }
+    }
   }
 }
