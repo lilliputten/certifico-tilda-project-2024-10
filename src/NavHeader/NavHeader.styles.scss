@@ -1,6 +1,6 @@
 @use 'sass:math';
 
-@import '../variables';
+@use '../variables' as *;
 
 #allrecords .uc-NavHeader {
   $BLOCK: $blockNavHeader;

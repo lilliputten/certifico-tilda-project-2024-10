@@ -94,6 +94,7 @@ module.exports = {
               sassOptions: {
                 // @see https://github.com/sass/node-sass#outputstyle
                 outputStyle: minimizeAssets ? 'compressed' : 'expanded',
+                silenceDeprecations: ['legacy-js-api'],
               },
             },
           },

@@ -1,6 +1,6 @@
 @use 'sass:color';
 
-@import 'variables';
+@use 'variables' as *;
 
 @function rgbComponents($color) {
   @return color.channel($color, 'red', $space: rgb) color.channel($color, 'green', $space: rgb)
