@@ -2,7 +2,7 @@
 
 /** @module Webpack config
  *  @since 2024.10.07, 00:00
- *  @changed 2024.10.18, 15:25
+ *  @changed 2024.10.28, 14:50
  */
 
 // eslint-disable-next-line no-unused-vars
@@ -50,7 +50,8 @@ function getAssetContent(asset) {
  */
 function removeSourceMaps(content) {
   content = content.replace(/\s*\/.# sourceMappingURL=.*/, '');
-  return content;
+  content = content.replace(/[\r\n]{2,}/gm, '\n');
+  return content.trim();
 }
 
 /**

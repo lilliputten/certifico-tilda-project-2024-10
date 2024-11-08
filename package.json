@@ -1,15 +1,14 @@
 {
   "name": "certifico-tilda-project-2024-10",
-  "version": "0.0.14",
-  "timetag": "241024-1417",
-  "timestamp": "2024.10.24 14:17 +0300",
+  "version": "0.0.15",
+  "timetag": "241109-0103",
+  "timestamp": "2024.11.09 01:03 +0300",
   "changed": "2024.10.23, 15:00",
   "description": "Certifico assets for include in tilda site",
   "main": "index.html",
   "author": "lilliputten@gmail.com",
   "license": "MIT",
   "homepage": "https://certificogroup.ru/",
-  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
   "repository": {
     "type": "git",
     "url": "git@github.com:lilliputten/certifico-tilda-project-2024-10.git"
@@ -90,5 +89,6 @@
     "clear-build-dev": "echo --Clear debug build folder-- && rimraf -I -g build-dev/* && echo Debug build folder has been cleaned",
     "clear-cache": "echo --Clear caches-- && rimraf node_modules/.cache && echo Cleared webpack cache",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
 }

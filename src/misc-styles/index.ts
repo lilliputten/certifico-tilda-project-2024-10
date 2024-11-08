@@ -1,9 +1,10 @@
 import './About.scss';
 import './Certificates.scss';
-import './DevWarning.scss';
+// import './DevWarning.scss';
 import './Faq.scss';
 import './Footer.scss';
 import './HeroMenu.scss';
+import './IconsList.scss';
 import './Interesting.scss';
 import './Intro.scss';
 import './News.scss';

@@ -1,10 +1,10 @@
-import './ClientsGallery.styles.scss';
-
 import {
   // smallTresholdPx, // 660
   // mobileTresholdPx, // 960
   wideTresholdPx, // 1200
 } from '../variables';
+
+import './ClientsGallery.styles.scss';
 
 export function initClientsGallery() {
   const galleryWrapper = $('.uc-ClientsBlock');

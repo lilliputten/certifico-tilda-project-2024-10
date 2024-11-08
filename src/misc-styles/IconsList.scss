@@ -1,0 +1,63 @@
+@use '../variables' as *;
+
+#allrecords .uc-IconsList {
+  @include activeLink;
+  .t1095__container {
+    @media (width > $mobileTreshold) {
+      columns: 2;
+      display: block;
+      column-gap: 40px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    .t-col {
+      display: flex;
+      align-items: center;
+      margin: 10px 0 !important;
+      /* // Is it required?
+       * $imageSize: 40px;
+       * .t-cell:first-child {
+       *   min-width: $imageSize;
+       *   > .t-bgimg {
+       *     // width: $imageSize !important;
+       *     // height: $imageSize !important;
+       *   }
+       * }
+       */
+    }
+  }
+  .t1095__textwrapper {
+    font-weight: bold;
+    .t-descr {
+      padding-top: 0 !important;
+    }
+    .t-name,
+    .t-descr {
+      &,
+      a {
+        display: block;
+        width: 100%;
+        transition: all var(--transitionTimeMs);
+      }
+    }
+    .t-name {
+      a {
+        color: var(--themeRedColor);
+      }
+    }
+    .t-descr {
+      a {
+        color: #000;
+      }
+    }
+    &:hover {
+      .t-name,
+      .t-descr {
+        a {
+          text-decoration: underline !important;
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+}
