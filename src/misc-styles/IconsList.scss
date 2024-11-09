@@ -14,19 +14,10 @@
       display: flex;
       align-items: center;
       margin: 10px 0 !important;
-      /* // Is it required?
-       * $imageSize: 40px;
-       * .t-cell:first-child {
-       *   min-width: $imageSize;
-       *   > .t-bgimg {
-       *     // width: $imageSize !important;
-       *     // height: $imageSize !important;
-       *   }
-       * }
-       */
     }
   }
   .t1095__textwrapper {
+    break-inside: avoid-column;
     font-weight: bold;
     .t-descr {
       padding-top: 0 !important;

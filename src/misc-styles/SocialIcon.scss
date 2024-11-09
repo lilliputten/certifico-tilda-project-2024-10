@@ -1,10 +1,10 @@
-.SocialIcons {
+#allrecords .SocialIcons {
   display: flex;
   justify-content: center;
   gap: 1em;
 }
 
-.SocialIcon {
+#allrecords .SocialIcon {
   display: inline-block;
   width: var(--socialIconSize);
   height: var(--socialIconSize);

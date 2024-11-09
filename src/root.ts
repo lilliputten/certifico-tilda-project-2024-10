@@ -12,7 +12,7 @@ import { initNavHeader } from './NavHeader';
 import { initTopMenu } from './TopMenu';
 import { initServicesGallery } from './ServicesGallery';
 // import { initResponses } from './Responses';
-import { initClientsGallery } from './ClientsGallery';
+import { initClientsBlock } from './ClientsBlock';
 import { initInlineForm } from './InlineForm';
 import { initIntroContacts } from './IntroContacts';
 
@@ -33,7 +33,7 @@ function initPage() {
   initTopMenu();
   initServicesGallery();
   // initResponses();
-  initClientsGallery();
+  initClientsBlock();
   initInlineForm();
   initIntroContacts();
 }

@@ -1,6 +1,6 @@
 @use '../variables' as *;
 
-.uc-Faq {
+#allrecords .uc-Faq {
   @include activeLink;
 
   &:before {

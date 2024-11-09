@@ -4,9 +4,9 @@ import {
   wideTresholdPx, // 1200
 } from '../variables';
 
-import './ClientsGallery.styles.scss';
+import './ClientsBlock.styles.scss';
 
-export function initClientsGallery() {
+export function initClientsBlock() {
   const galleryWrapper = $('.uc-ClientsBlock');
   if (!galleryWrapper[0]) {
     return;

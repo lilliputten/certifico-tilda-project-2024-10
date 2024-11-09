@@ -1,6 +1,6 @@
 @use '../variables' as *;
 
-.uc-News {
+#allrecords .uc-News {
   @include basicActiveLink;
   .t-feed__post-bgimg {
     border-radius: 8px;

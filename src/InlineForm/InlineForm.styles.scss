@@ -1,6 +1,6 @@
 @use '../variables' as *;
 
-.uc-InlineForm {
+#allrecords .uc-InlineForm {
   @include activeLink;
   .t698__descr {
     margin-bottom: 1.5em;

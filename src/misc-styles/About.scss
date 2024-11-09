@@ -1,5 +1,5 @@
 @use '../variables' as *;
 
-.uc-About {
+#allrecords .uc-About {
   @include activeLink;
 }

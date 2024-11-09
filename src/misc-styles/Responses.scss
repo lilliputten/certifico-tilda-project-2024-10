@@ -1,6 +1,6 @@
 @use '../variables' as *;
 
-.uc-Responses {
+#allrecords .uc-Responses {
   $BLOCK: $blockResponses;
   background-color: var(--themeMoodColor);
 

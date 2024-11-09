@@ -1,6 +1,6 @@
 @use '../variables' as *;
 
-.uc-Footer {
+#allrecords .uc-Footer {
   @include activeLink;
 
   // hyphens: auto; // TODO: Long words wrap?
