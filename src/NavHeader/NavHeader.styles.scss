@@ -21,6 +21,9 @@
     @media (width <= $mobileTreshold) {
       // border-bottom: 1px solid var(--themeMoodColor);
       box-shadow: 0 10px 15px 0 rgba(0 0 0 / 50%);
+      // Make panel full-height
+      overflow: auto;
+      bottom: 0;
     }
   }
   #{$BLOCK}__logo-descr {
@@ -49,17 +52,36 @@
   }
 
   @media (width <= $mobileTreshold) {
+    // @see Menu cloned in `project/src/TopMenu/TopMenu.ts`
     .SubMenu {
-      .t-menusub__arrow {
-        display: none;
-      }
-      .t-menu__list {
-        padding: 0 20px;
-        line-height: 2em;
-      }
       nav {
         padding: 0;
         padding-bottom: 10px;
+      }
+      .t-menu__list {
+        padding: 0 10px;
+        // line-height: 2em;
+      }
+      .t-menusub__content {
+        padding-top: 8px;
+        // overflow: hidden;
+      }
+      .t229__list_item {
+        display: block;
+        a {
+          display: inline-block;
+          padding: 0.75em 0;
+        }
+      }
+      .t-menusub__list-item {
+        margin-bottom: 0;
+      }
+      .t-menusub__menu.t-menusub__menu_show {
+        display: block;
+      }
+      .t-menusub__arrow {
+        // Arrow should be visible
+        // display: none;
       }
       a {
         color: var(--themeMoodColor);
