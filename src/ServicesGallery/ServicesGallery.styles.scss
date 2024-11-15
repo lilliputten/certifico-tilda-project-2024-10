@@ -1,6 +1,7 @@
 @use '../variables' as *;
 
 #allrecords .uc-ServicesGallery {
+  // @include activeLink;
   .t-section__title {
     margin-bottom: 40px !important;
   }
@@ -56,7 +57,8 @@
       &:hover {
         opacity: 0.9;
         .t-name a {
-          text-decoration: underline !important;
+          opacity: 0.9;
+          @include activeLinkHovered;
         }
       }
     }

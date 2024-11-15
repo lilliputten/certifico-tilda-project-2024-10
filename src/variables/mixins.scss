@@ -1,11 +1,18 @@
 @use 'variables' as *;
 
+@mixin basicActiveLinkHovered {
+  opacity: 0.75;
+}
+@mixin activeLinkHovered {
+  text-decoration: underline !important;
+  text-decoration-skip-ink: none;
+}
 @mixin basicActiveLink {
   button,
   a {
     transition: all var(--transitionTimeMs);
     &:hover {
-      opacity: 0.75;
+      @include basicActiveLinkHovered;
     }
   }
 }
@@ -15,7 +22,7 @@
   button,
   a {
     &:hover {
-      text-decoration: underline !important;
+      @include activeLinkHovered;
     }
   }
 }
