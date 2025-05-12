@@ -9,7 +9,7 @@
 DIST_BRANCH="publish" # Production build -> html-app-build
 
 # TODO: Use the repo from `.git/config`?
-DIST_REPO="git@github.com:lilliputten/certifico-included-assets.git"
+DIST_REPO="git@github.com:lilliputten/certifico-tilda-project-2024-10.git"
 SRC_TAG_PREFIX="v" # "v" for default tags like "v.X.Y.Z"
 
 PUBLISH_FOLDER="$DIST_BRANCH"
