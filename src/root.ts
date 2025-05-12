@@ -1,6 +1,6 @@
 /** @module Scripts root module
  *  @since 2024.10.06, 22:40
- *  @changed 2024.10.15, 13:56
+ *  @changed 2025.05.13, 00:01
  */
 
 import './app-info.scss';
@@ -15,6 +15,7 @@ import { initServicesGallery } from './ServicesGallery';
 import { initClientsBlock } from './ClientsBlock';
 import { initInlineForm } from './InlineForm';
 import { initIntroContacts } from './IntroContacts';
+import { initLangMenu } from './LangMenu/LangMenu';
 
 /** Print app info */
 function printAppInfo() {
@@ -36,6 +37,7 @@ function initPage() {
   initClientsBlock();
   initInlineForm();
   initIntroContacts();
+  initLangMenu();
 }
 
 printAppInfo();

@@ -1,0 +1,21 @@
+@use '../variables' as *;
+
+#allrecords .uc-LangMenu {
+  display: none;
+}
+
+#allrecords .LangMenu {
+  padding: 1.5em 0;
+  display: flex;
+  padding-top: 2.5em;
+  @media (width <= 640px) {
+    padding-top: 0;
+  }
+  .t228__right_buttons_wrap {
+    display: flex;
+    gap: 10px;
+  }
+  .t228__right_langs_lang {
+    padding: 0;
+  }
+}

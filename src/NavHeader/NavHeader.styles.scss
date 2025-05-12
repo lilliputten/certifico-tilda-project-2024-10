@@ -68,6 +68,7 @@
       }
       .t229__list_item {
         display: block;
+        padding: 0 !important;
         a {
           display: inline-block;
           padding: 0.75em 0;
@@ -150,6 +151,14 @@
         display: none;
         border-color: #fff;
       }
+    }
+  }
+
+  // Language menu
+  .LangMenu {
+    // Custom styles for nav header LangMenu
+    .t228__right_buttons_wrap {
+      margin: auto;
     }
   }
 }

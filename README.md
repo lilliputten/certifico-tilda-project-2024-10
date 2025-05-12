@@ -7,7 +7,7 @@
 
 TODO: Describe workflow here.
 
-- Version: 0.0.16
-- Last changes timestamp: 2024.11.15 17:49 +0300
+- Version: 0.0.17
+- Last changes timestamp: 2025.05.13 00:37 +0300
 
 TODO: Add the project description.
