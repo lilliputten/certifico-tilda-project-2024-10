@@ -1,11 +1,11 @@
 {
-  "appVersionHash": "certifico-tilda-project-2024-10 v.0.0.16 / 2024.11.11 21:50 +0300",
+  "appVersionHash": "certifico-tilda-project-2024-10 v.0.0.17 / 2025.05.13 00:37 +0300",
   "projectName": "certifico-tilda-project-2024-10",
-  "timestamp": "2024.11.11 21:50 +0300",
-  "timetag": "241111-2150",
-  "version": "0.0.16",
-  "currentTimeStr": "2024.11.11 21:50 +0300",
-  "currentTimeTag": "241111-2150",
-  "gitCommitHash": "82bbb9c",
-  "gitBranch": "main"
+  "timestamp": "2025.05.13 00:37 +0300",
+  "timetag": "250513-0037",
+  "version": "0.0.17",
+  "currentTimeStr": "2025.05.13 00:37 +0300",
+  "currentTimeTag": "250513-0037",
+  "gitCommitHash": "2565e2c",
+  "gitBranch": "5-add-language-menu"
 }
