@@ -1,5 +1,6 @@
 import './About.scss';
 import './Certificates.scss';
+import './Common.scss';
 import './Faq.scss';
 import './Footer.scss';
 import './HeroMenu.scss';

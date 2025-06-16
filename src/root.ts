@@ -16,6 +16,7 @@ import { initClientsBlock } from './ClientsBlock';
 import { initInlineForm } from './InlineForm';
 import { initIntroContacts } from './IntroContacts';
 import { initLangMenu } from './LangMenu/LangMenu';
+import { initConfirmForms } from './ConfirmForm';
 
 /** Print app info */
 function printAppInfo() {
@@ -38,6 +39,7 @@ function initPage() {
   initInlineForm();
   initIntroContacts();
   initLangMenu();
+  initConfirmForms();
 }
 
 printAppInfo();
