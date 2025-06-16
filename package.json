@@ -1,14 +1,15 @@
 {
   "name": "certifico-tilda-project-2024-10",
-  "version": "0.0.16",
-  "timetag": "241115-1749",
-  "timestamp": "2024.11.15 17:49 +0300",
-  "changed": "2024.10.23, 15:00",
+  "version": "0.0.18",
+  "timetag": "250616-1714",
+  "timestamp": "2025.06.16 17:14 +0300",
+  "changed": "2025.05.12, 23:59",
   "description": "Certifico assets for include in tilda site",
   "main": "index.html",
   "author": "lilliputten@gmail.com",
   "license": "MIT",
   "homepage": "https://certificogroup.ru/",
+  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c",
   "repository": {
     "type": "git",
     "url": "git@github.com:lilliputten/certifico-tilda-project-2024-10.git"
@@ -35,6 +36,7 @@
     "@types/node": "^22.7.4",
     "@types/owl.carousel": "^2.3.6",
     "@typescript-eslint/eslint-plugin": "^8.8.0",
+    "concurrently": "^9.1.2",
     "copy-webpack-plugin": "^12.0.2",
     "cross-env": "^7.0.3",
     "css-loader": "^7.1.2",
@@ -76,7 +78,7 @@
     "lint": "echo --Lint sources-- && eslint . --ext js",
     "type-check": "echo --Run typescript linter-- && tsc --pretty --noEmit",
     "check-all": "echo --Run all pre-commit check-ups-- && npm-run-all prettier stylelint lint type-check && echo --All check-ups are passed--",
-    "build-publish": "echo --Build and publish-- && npm-run-all build publish",
+    "build-and-publish": "echo --Build and publish-- && npm-run-all build publish",
     "serve": "serve build",
     "serve-dev": "serve --cors build-dev",
     "publish": "echo --Publish build /posix commands and uplevel utils branch are used/-- && sh ../utils/scripts/publish.sh",
@@ -84,11 +86,11 @@
     "build-dev": "echo --Create all assets in debug mode /webpack/-- && cross-env DEV=true webpack",
     "watch-build": "echo --Watch all assets /webpack/-- && webpack --watch",
     "watch-build-dev": "echo --Watch all assets in debug mode /webpack/-- && cross-env DEV=true webpack --watch",
+    "dev": "echo --Run all dev tasks concurrently-- && concurrently --kill-others \"pnpm watch-build-dev\" \"pnpm serve-dev\"",
     "start": "echo --Run dev server-- && serve .",
     "clear-build": "echo --Clear build folder-- && rimraf -I -g build/* && echo Build folder has been cleaned",
     "clear-build-dev": "echo --Clear debug build folder-- && rimraf -I -g build-dev/* && echo Debug build folder has been cleaned",
     "clear-cache": "echo --Clear caches-- && rimraf node_modules/.cache && echo Cleared webpack cache",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "packageManager": "pnpm@9.10.0+sha512.73a29afa36a0d092ece5271de5177ecbf8318d454ecd701343131b8ebc0c1a91c487da46ab77c8e596d6acf1461e3594ced4becedf8921b074fbd8653ed7051c"
+  }
 }
